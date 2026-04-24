@@ -364,28 +364,28 @@ export function Home() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8">
             {stats.map((stat, i) => {
               const Icon = stat.icon
               return (
                 <div
                   key={stat.label}
-                  className="text-center p-8 rounded-2xl backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-school-gold/30 transition-all duration-500 group relative animate-in fade-in zoom-in duration-700"
+                  className="text-center p-3 md:p-6 rounded-xl backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-school-gold/30 transition-all duration-500 group relative animate-in fade-in zoom-in duration-700"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
-                  <div className="absolute top-4 right-4 text-white/5 font-black text-6xl select-none group-hover:text-school-gold/10 transition-colors">
+                  <div className="absolute top-2 right-2 md:top-4 md:right-4 text-white/5 font-black text-4xl md:text-6xl select-none group-hover:text-school-gold/10 transition-colors">
                     {i + 1}
                   </div>
                   <div
-                    className="h-16 w-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-xl"
+                    className="h-8 w-8 md:h-16 md:w-16 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500 shadow-xl"
                     style={{ backgroundColor: "var(--school-gold)" }}
                   >
                     <Icon
-                      className="h-8 w-8 text-school-green-dark"
+                      className="md:h-8 md:w-8 h-4 w-4 text-school-green-dark"
                     />
                   </div>
                   <div
-                    className="text-5xl font-black mb-3 tracking-tight"
+                    className="md:text-5xl text-2xl font-black mb-3 tracking-tight"
                     style={{ color: "var(--school-gold)" }}
                   >
                     {counters[i]}
