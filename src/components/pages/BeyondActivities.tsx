@@ -75,7 +75,7 @@ export function BeyondActivities() {
           </div>
 
           {/* Featured Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-5">
             {[
               { label: "Sports", icon: Trophy, count: "15+" },
               { label: "Arts", icon: Palette, count: "10+" },
@@ -83,9 +83,9 @@ export function BeyondActivities() {
               { label: "Clubs", icon: Globe, count: "08+" },
             ].map((stat, i) => (
               <div key={stat.label} className="flex flex-col items-center p-6 rounded-2xl bg-slate-50 border border-slate-100 animate-in fade-in zoom-in duration-700" style={{ animationDelay: `${i * 100}ms` }}>
-                <stat.icon className="h-8 w-8 text-school-green mb-3" />
-                <p className="text-3xl font-black text-school-green-dark">{stat.count}</p>
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">{stat.label}</p>
+                <stat.icon className="h-8 w-8 md:h-10 md:w-10 text-school-green mb-3" />
+                <p className="text-lg md:text-2xl font-black text-school-green-dark">{stat.count}</p>
+                <p className="text-xs md:text-base font-bold text-slate-500 uppercase tracking-widest mt-1">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -214,39 +214,7 @@ export function BeyondActivities() {
         </div>
       </section>
 
-      {/* ─── CTA ──────────────────────────────────────────── */}
-      <section className="py-12 md:py-14 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div
-            className="rounded-2xl p-12 md:p-20 text-center relative overflow-hidden shadow-[0_50px_100px_rgba(35,77,65,0.2)] animate-in fade-in zoom-in duration-1000"
-            style={{ background: `linear-gradient(135deg, #1a3a32 0%, #2a5a4a 100%)` }}
-          >
-            <div className="relative z-10 max-w-3xl mx-auto">
-              <Badge
-                className="mb-8 px-5 py-2 text-xs font-black tracking-[0.3em] uppercase border-2 shadow-2xl backdrop-blur-md"
-                style={{ backgroundColor: "oklch(0.8 0.15 82 / 0.15)", borderColor: "var(--school-gold)", color: "var(--school-gold)" }}
-              >
-                UNLEASH POTENTIAL
-              </Badge>
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
-                Ready to Join the <br />
-                <span className="text-school-gold" style={{ color: "var(--school-gold)" }}>Champion&apos;s Circle?</span>
-              </h2>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button asChild size="lg" className="h-16 px-12 rounded-xl gap-3 font-black text-lg shadow-2xl hover:scale-105 transition-all duration-300" style={{ backgroundColor: "var(--school-gold)", color: "#1a3a32" }}>
-                  <Link href="/contact">
-                    Apply for Admission
-                    <ArrowRight className="h-6 w-6" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="h-16 px-10 rounded-xl gap-3 font-black text-lg backdrop-blur-md bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-white transition-all duration-300">
-                  <Link href="/contact">Enquire Now</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
     </div>
   )
 }
