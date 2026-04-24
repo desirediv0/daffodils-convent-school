@@ -163,22 +163,20 @@ export function Navbar() {
               Apply Now
             </Link>
           </Button>
-        </div>
-
-        {/* Mobile Toggle */}
+        </div>        {/* Mobile Toggle */}
         <button
           className={cn(
-            "lg:hidden p-2.5 rounded-xl transition-all duration-300 relative z-[110]",
+            "lg:hidden p-3 rounded-xl transition-all duration-300 relative z-[110]",
             isOpen
-              ? "bg-[var(--school-green-dark)] text-white"
+              ? "opacity-0 pointer-events-none" // Hide original toggle when menu is open
               : scrolled
                 ? "bg-[var(--school-green)]/10 text-[var(--school-green-dark)]"
                 : "bg-white/10 text-white backdrop-blur-md border border-white/20"
           )}
           onClick={toggleMenu}
-          aria-label="Toggle Menu"
+          aria-label="Open Menu"
         >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <Menu className="h-6 w-6" />
         </button>
       </nav>
 
@@ -190,19 +188,28 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[105] lg:hidden flex flex-col"
-            style={{ backgroundColor: "#0d2d23" }} // Explicit school-green-dark
+            className="fixed inset-0 z-[120] lg:hidden flex flex-col h-[100dvh] w-full"
+            style={{ backgroundColor: "#0d2d23" }}
           >
-            {/* Premium Background Elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              <div className="absolute -top-[10%] -right-[10%] w-[60%] h-[40%] bg-[var(--school-gold)]/10 blur-[120px] rounded-full" />
-              <div className="absolute -bottom-[10%] -left-[10%] w-[60%] h-[40%] bg-[var(--school-green)]/20 blur-[120px] rounded-full" />
-              <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(white 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+            {/* Close Button Inside Menu */}
+            <div className="absolute top-6 right-6 z-[130]">
+              <button
+                onClick={toggleMenu}
+                className="h-12 w-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-[var(--school-gold)] hover:text-[#0d2d23] transition-all duration-300 active:scale-90 shadow-xl"
+              >
+                <X className="h-6 w-6" />
+              </button>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-8 pt-32 pb-10 relative z-10">
-              <div className="flex flex-col gap-3">
-                <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-6 px-4">Main Navigation</p>
+            {/* Background Decorations */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-50">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--school-gold)]/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2" />
+            </div>
+
+            <div className="flex-1 overflow-y-auto px-8 pt-28 pb-10 relative z-20">
+              <div className="flex flex-col gap-2">
+                <p className="text-[10px]  uppercase tracking-[0.4em] text-white/30 mb-4 px-4">Menu</p>
                 {navLinks.map((link, i) => {
                   const isActive = pathname === link.href
                   return (
@@ -215,58 +222,46 @@ export function Navbar() {
                       <Link
                         href={link.href}
                         className={cn(
-                          "flex items-center justify-between px-6 py-5 rounded-2xl text-xl font-black transition-all duration-300",
+                          "flex items-center justify-between px-6 py-4 rounded-xl text-lg  transition-all duration-300",
                           isActive
-                            ? "bg-[var(--school-gold)] text-[#0d2d23] shadow-2xl shadow-[var(--school-gold)]/20"
-                            : "text-white/80 hover:text-white hover:bg-white/5"
+                            ? "bg-[var(--school-gold)] text-[#0d2d23] shadow-lg"
+                            : "text-white/90 hover:bg-white/5"
                         )}
                       >
                         {link.label}
-                        <ArrowUpRight className={cn(
-                          "h-5 w-5 transition-all duration-500",
-                          isActive ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2"
-                        )} />
+                        {isActive ? (
+                          <ArrowUpRight className="h-5 w-5" />
+                        ) : (
+                          <div className="h-1.5 w-1.5 rounded-full bg-white/20" />
+                        )}
                       </Link>
                     </motion.div>
                   )
                 })}
               </div>
 
-              <div className="mt-16 pt-10 border-t border-white/10">
-                <div className="grid grid-cols-1 gap-6">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5 }}
-                  >
-                    <Button asChild className="w-full h-16 rounded-2xl text-lg font-black shadow-2xl shadow-black/20" style={{ backgroundColor: "white", color: "#0d2d23" }}>
-                      <Link href="/contact" className="flex items-center gap-3">
-                        <GraduationCap className="h-6 w-6" />
-                        Apply for Admission
-                      </Link>
-                    </Button>
-                  </motion.div>
-                </div>
+              <div className="mt-12 pt-8 border-t border-white/10">
+                <Button asChild className="w-full h-12 rounded-md text-md f bg-white text-[#0d2d23] hover:bg-white/90 shadow-xl">
+                  <Link href="/contact" className="flex items-center justify-center gap-2">
+                    <GraduationCap className="h-5 w-5" />
+                    Apply for Admission
+                  </Link>
+                </Button>
 
-                <div className="mt-12 space-y-8">
-                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 px-4">Quick Contact</p>
-                  <div className="grid grid-cols-1 gap-4">
-                    <a href="tel:+917532817306" className="flex items-center gap-5 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-all">
-                      <div className="h-10 w-10 rounded-xl bg-[var(--school-gold)]/20 flex items-center justify-center">
+                <div className="mt-10 space-y-6">
+                  <div className="space-y-4">
+                    <a href="tel:+917532817306" className="flex items-center gap-4 text-white hover:text-[var(--school-gold)] transition-colors px-4">
+                      <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center">
                         <Phone className="h-5 w-5 text-[var(--school-gold)]" />
                       </div>
-                      +91 7532817306
+                      <span className="font-bold text-sm">+91 7532817306</span>
                     </a>
-                    <a href="mailto:daffodilsconventinformation@gmail.com" className="flex items-center gap-5 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-bold hover:bg-white/10 transition-all">
-                      <div className="h-10 w-10 rounded-xl bg-[var(--school-gold)]/20 flex items-center justify-center">
+                    <a href="mailto:daffodilsconventinformation@gmail.com" className="flex items-center gap-4 text-white hover:text-[var(--school-gold)] transition-colors px-4">
+                      <div className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center">
                         <Mail className="h-5 w-5 text-[var(--school-gold)]" />
                       </div>
-                      Email Us
+                      <span className="font-bold text-sm">Email Us</span>
                     </a>
-                    <div className="flex items-center gap-5 px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white/60 font-medium italic text-sm">
-                      <MapPin className="h-5 w-5 text-[var(--school-gold)] shrink-0" />
-                      Line Number 12, Neharu Nagar, Anand Parbat, New Delhi
-                    </div>
                   </div>
                 </div>
               </div>
