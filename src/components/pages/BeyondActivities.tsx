@@ -14,7 +14,7 @@ const activityCategories = [
     icon: Music,
     color: "var(--school-green)",
     bgColor: "var(--school-green-light)",
-    image: "/cultural-event.webp",
+    image: "/cultural-performance-2.jpeg",
     description: "With professionals on board, we take pride in training our students in art forms like dance, drama, painting and more. We organize exhibitions, concerts and musical events to encourage our students to own their talent and flourish in those fields.",
     activities: ["Classical Dance", "Western Dance", "Instrumental Music", "Vocal Training", "Drama & Theatre", "Painting & Sketching", "Musical Concerts", "Art Exhibitions"],
   },
@@ -23,7 +23,7 @@ const activityCategories = [
     icon: Heart,
     color: "var(--school-gold-dark)",
     bgColor: "var(--school-gold-light)",
-    image: "/yoga-activity.webp",
+    image: "/yoga-performance.jpeg",
     description: "Yoga is an integral part of our school’s commitment to holistic education, nurturing both physical well-being and mental balance. Through regular practice, students develop flexibility, strength, concentration, and emotional resilience, while learning the importance of mindfulness and self-discipline. Rooted in our rich heritage yet deeply relevant in today’s fast-paced world, yoga empowers our learners to lead healthy, focused, and harmonious lives.",
     activities: ["Asanas", "Pranayama", "Meditation", "Flexibility Training", "Mental Focus", "Breathing Exercises", "Self-Discipline", "Emotional Balance"],
   },
@@ -32,11 +32,40 @@ const activityCategories = [
     icon: Trophy,
     color: "var(--school-green)",
     bgColor: "var(--school-green-light)",
-    image: "/sports-activity.webp",
+    image: "/sports-activity.jpeg",
     description: "Sports activities play a vital role in our school curriculum, fostering physical fitness, teamwork, discipline, and leadership among students. Through structured training and healthy competition, learners develop endurance, coordination, and a strong spirit of sportsmanship. Participation in sports not only promotes a healthy lifestyle but also instills confidence, resilience, and the ability to face challenges with determination—skills that extend far beyond the playing field.",
     activities: ["Cricket", "Football", "Badminton", "Table Tennis", "Athletics", "Basketball", "Leadership Training", "Team Building"],
   },
 ]
+
+
+
+const galleryImages = [
+  { src: "/annual-function-dance-1.jpeg", alt: "Students performing cultural dance", span: "col-span-2 row-span-2" },
+  { src: "/annual-function-dance-2.jpeg", alt: "Group dance performance", span: "" },
+  { src: "/award-ceremony-1.jpeg", alt: "Student receiving award", span: "" },
+  { src: "/stage-performance-1.jpeg", alt: "Stage performance by students", span: "" },
+  { src: "/principal-speech.jpeg", alt: "Principal giving speech", span: "" },
+  { src: "/school-event-group.jpeg", alt: "Guests and staff on stage", span: "" },
+  { src: "/annual-function-audience.jpeg", alt: "Audience at school event", span: "" },
+
+  { src: "/cultural-performance-2.jpeg", alt: "Students performing on stage", span: "" },
+  { src: "/dance-performance-white-theme.jpeg", alt: "Dance performance in white costume", span: "" },
+  { src: "/cultural-dance-performance.jpeg", alt: "Students performing cultural dance on stage", span: "" },
+  { src: "/sports-activity.jpeg", alt: "Students playing indoor sports", span: "" },
+  { src: "/martial-arts-performance.jpeg", alt: "Martial arts activity", span: "" },
+  { src: "/school-trip-jeep.jpeg", alt: "Students enjoying school trip", span: "" },
+  { src: "/kids-play-area.jpeg", alt: "Kids playing in activity area", span: "" },
+
+  { src: "/nature-visit.jpeg", alt: "Students in nature visit", span: "" },
+  { src: "/yoga-performance.jpeg", alt: "Yoga performance by students", span: "" },
+  { src: "/traditional-dress-group.jpeg", alt: "Students in traditional dress", span: "" },
+  { src: "/classroom-activity.jpeg", alt: "Students in classroom", span: "" },
+  { src: "/group-dance-green.jpeg", alt: "Group dance in green costume", span: "" },
+];
+
+
+
 
 
 
@@ -181,19 +210,16 @@ export function BeyondActivities() {
             <h2 className="text-4xl font-black text-school-green-dark">Moments that Define Us</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[250px]">
-            {[
-              { src: "/sports-activity.webp", alt: "Sports Day", span: "md:col-span-2 md:row-span-2" },
-              { src: "/art-activity.webp", alt: "Art Workshop", span: "md:col-span-2" },
-              { src: "/cultural-event.webp", alt: "Cultural Fest", span: "md:row-span-2" },
-              { src: "/science-lab.webp", alt: "Lab Innovations", span: "" },
-              { src: "/classroom-students.webp", alt: "Group Learning", span: "md:col-span-2" },
-            ].map((img, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[200px]">
+            {galleryImages.map((img, i) => (
               <div
                 key={img.alt}
                 className={cn(
                   "relative overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000",
-                  img.span
+                  i === 0 ? "md:col-span-2 md:row-span-2" : "",
+                  i === 1 ? "md:col-span-2" : "",
+                  i === 2 ? "md:row-span-2" : "",
+                  i === 5 ? "md:col-span-2" : ""
                 )}
                 style={{ animationDelay: `${i * 100}ms` }}
               >

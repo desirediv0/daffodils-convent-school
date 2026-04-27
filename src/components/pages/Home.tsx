@@ -40,14 +40,28 @@ const stats = [
 ]
 
 const galleryImages = [
-  { src: "/school-hero.webp", alt: "School Campus", span: "col-span-2 row-span-2" },
-  { src: "/classroom-students.webp", alt: "Students in Class", span: "" },
-  { src: "/school-library.webp", alt: "School Library", span: "" },
-  { src: "/sports-activity.webp", alt: "Sports Activity", span: "" },
-  { src: "/art-activity.webp", alt: "Art & Craft", span: "" },
-  { src: "/cultural-event.webp", alt: "Cultural Event", span: "" },
-  { src: "/science-lab.webp", alt: "Science Lab", span: "" },
-]
+  { src: "/annual-function-dance-1.jpeg", alt: "Students performing cultural dance", span: "col-span-2 row-span-2" },
+  { src: "/annual-function-dance-2.jpeg", alt: "Group dance performance", span: "" },
+  { src: "/award-ceremony-1.jpeg", alt: "Student receiving award", span: "" },
+  { src: "/stage-performance-1.jpeg", alt: "Stage performance by students", span: "" },
+  { src: "/principal-speech.jpeg", alt: "Principal giving speech", span: "" },
+  { src: "/school-event-group.jpeg", alt: "Guests and staff on stage", span: "" },
+  { src: "/annual-function-audience.jpeg", alt: "Audience at school event", span: "" },
+
+  { src: "/cultural-performance-2.jpeg", alt: "Students performing on stage", span: "" },
+  { src: "/dance-performance-white-theme.jpeg", alt: "Dance performance in white costume", span: "" },
+  { src: "/cultural-dance-performance.jpeg", alt: "Students performing cultural dance on stage", span: "" },
+  { src: "/sports-activity.jpeg", alt: "Students playing indoor sports", span: "" },
+  { src: "/martial-arts-performance.jpeg", alt: "Martial arts activity", span: "" },
+  { src: "/school-trip-jeep.jpeg", alt: "Students enjoying school trip", span: "" },
+  { src: "/kids-play-area.jpeg", alt: "Kids playing in activity area", span: "" },
+
+  { src: "/nature-visit.jpeg", alt: "Students in nature visit", span: "" },
+  { src: "/yoga-performance.jpeg", alt: "Yoga performance by students", span: "" },
+  { src: "/traditional-dress-group.jpeg", alt: "Students in traditional dress", span: "" },
+  { src: "/classroom-activity.jpeg", alt: "Students in classroom", span: "" },
+  { src: "/group-dance-green.jpeg", alt: "Group dance in green costume", span: "" },
+];
 
 const highlights = [
   "CBSE Affiliated Curriculum",
@@ -82,7 +96,7 @@ export function Home() {
         {/* Background Image with optimized overlay */}
         <div className="absolute inset-0">
           <Image
-            src="/school-hero.webp"
+            src="/school-hero.jpeg"
             alt="Daffodils Convent School"
             className="w-full h-full object-cover scale-105 animate-slow-zoom"
             width={1920}
@@ -205,7 +219,7 @@ export function Home() {
 
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
                   <Image
-                    src="/classroom-students.webp"
+                    src="/classroom-students.jpeg"
                     alt="Education at Daffodils"
                     className="w-full h-full object-cover"
                     width={800}
@@ -258,7 +272,7 @@ export function Home() {
             <div className="relative group animate-in fade-in slide-in-from-left-12 duration-1000">
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl z-10">
                 <Image
-                  src="/classroom-students.webp"
+                  src="/classroom-students.jpeg"
                   alt="Students at Daffodils Convent School"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   width={1200}

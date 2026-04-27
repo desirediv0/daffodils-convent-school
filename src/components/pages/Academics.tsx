@@ -82,7 +82,7 @@ export function Academics() {
             {teachingApproach.map((item, i) => (
               <div
                 key={item.title}
-                className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-500 group animate-in fade-in zoom-in duration-700"
+                className="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all  group animate-in fade-in zoom-in duration-700"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <div className="h-14 w-14 rounded-2xl bg-school-green/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -149,7 +149,7 @@ export function Academics() {
             <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-right-12 duration-1000">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
                 <Image
-                  src="/classroom-students.webp"
+                  src="/classroom-activity.jpeg"
                   alt="Primary Section Students"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   width={600}
@@ -176,7 +176,7 @@ export function Academics() {
             <div className="lg:col-span-5 lg:order-1 relative group animate-in fade-in slide-in-from-left-12 duration-1000">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
                 <Image
-                  src="/science-lab.webp"
+                  src="/nature-visit.jpeg"
                   alt="Middle Section Science Lab"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   width={600}
@@ -249,11 +249,11 @@ export function Academics() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[250px]">
             {[
-              { src: "/classroom-students.webp", label: "Smart Classrooms", span: "md:col-span-2 md:row-span-2" },
-              { src: "/science-lab.webp", label: "Science Laboratory", span: "md:col-span-2" },
-              { src: "/school-library.webp", label: "Digital Library", span: "md:row-span-2" },
-              { src: "/classroom-students.webp", label: "Creative Art Studio", span: "" },
-              { src: "/science-lab.webp", label: "Computer Center", span: "md:col-span-2" },
+              { src: "/classroom-activity.jpeg", label: "Smart Classrooms", span: "md:col-span-2 md:row-span-2" },
+              { src: "/nature-visit.jpeg", label: "Science Laboratory", span: "md:col-span-2" },
+              { src: "/traditional-dress-group.jpeg", label: "Digital Library", span: "md:row-span-2" },
+              { src: "/cultural-performance-2.jpeg", label: "Creative Art Studio", span: "" },
+              { src: "/kids-play-area.jpeg", label: "Computer Center", span: "md:col-span-2" },
             ].map((f, i) => (
               <div
                 key={f.label}
