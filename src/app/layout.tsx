@@ -18,7 +18,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Daffodils Convent School",
-  description: "Official website of Daffodils Convent School, New Delhi.",
+  description: "Official website of Daffodils Convent School, New Delhi. Located at 114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008.",
 };
 
 export default function RootLayout({

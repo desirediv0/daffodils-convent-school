@@ -9,6 +9,15 @@ import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
 import Image from "next/image"
+import { motion, AnimatePresence } from "framer-motion"
+
+const heroCarouselImages = [
+  "/classroom-students.jpeg",
+  "/classroom-activity.jpeg",
+  "/sports-activity.jpeg",
+  "/martial-arts-performance.jpeg",
+  "/yoga-performance.jpeg",
+]
 
 // Animated counter hook
 
@@ -75,6 +84,14 @@ const highlights = [
 export function Home() {
   const statsRef = useRef<HTMLDivElement>(null)
   const [statsVisible, setStatsVisible] = useState(false)
+  const [currentHeroImage, setCurrentHeroImage] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHeroImage((prev) => (prev + 1) % heroCarouselImages.length)
+    }, 3000)
+    return () => clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -138,7 +155,7 @@ export function Home() {
                   }}
                 >
                   <span className="flex h-2 w-2 rounded-full bg-school-gold animate-ping mr-2" style={{ backgroundColor: "var(--school-gold)" }}></span>
-                  Admissions Open 2025–26
+                  Admissions Open 2026–27
                 </Badge>
               </div>
 
@@ -194,18 +211,10 @@ export function Home() {
 
               {/* Trust Indicators */}
               <div className="mt-12 flex items-center gap-6 animate-in fade-in duration-1000 delay-500">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="h-10 w-10 rounded-full border-2 border-school-green-dark bg-slate-200 overflow-hidden shadow-md">
-                      <div className="w-full h-full bg-school-gold/20 flex items-center justify-center text-[10px] font-bold text-school-green-dark">
-                        S{i}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+
                 <div className="text-sm text-white/60">
-                  <span className="text-white font-bold block">1000+ Students</span>
-                  Trust our education system
+                  <span className="text-white font-bold block">5500+ Students</span>
+                  Till date enrolled
                 </div>
               </div>
             </div>
@@ -218,14 +227,29 @@ export function Home() {
                 <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-school-green/30 rounded-3xl -z-10 animate-float [animation-delay:1.5s]"></div>
 
                 <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
-                  <Image
-                    src="/classroom-students.jpeg"
-                    alt="Education at Daffodils"
-                    className="w-full h-full object-cover"
-                    width={800}
-                    height={1000}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/60 to-transparent"></div>
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentHeroImage}
+                      initial={{ x: "20%", opacity: 0, scale: 1.1 }}
+                      animate={{ x: 0, opacity: 1, scale: 1 }}
+                      exit={{ x: "-20%", opacity: 0, scale: 0.9 }}
+                      transition={{ 
+                        duration: 1.2, 
+                        ease: [0.22, 1, 0.36, 1] 
+                      }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={heroCarouselImages[currentHeroImage]}
+                        alt="Education at Daffodils"
+                        className="w-full h-full object-cover"
+                        width={800}
+                        height={1000}
+                        priority
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                  <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/60 to-transparent pointer-events-none"></div>
 
                   {/* Floating Stats Card */}
                   <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl">
@@ -315,8 +339,7 @@ export function Home() {
 
               <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
                 <p>
-                  Daffodils Convent School, located at Nehru Nagar, Anand Parvat,
-                  New Delhi, is more than just an institution—it&apos;s a nurturing space where education blends with
+                  Daffodils Convent School, located at 114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008, is more than just an institution—it&apos;s a nurturing space where education blends with
                   values, creativity, and discipline.
                 </p>
                 <p>

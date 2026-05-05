@@ -13,7 +13,7 @@ const contactDetails = [
   {
     icon: MapPin,
     label: "Main Campus",
-    value: "114 Line Number 12, Neharu Nagar, New Delhi 110008",
+    value: "114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008",
     color: "var(--school-green)",
     bgColor: "var(--school-green-light)",
   },
@@ -35,7 +35,7 @@ const contactDetails = [
   },
   {
     icon: Clock,
-    label: "School Hours",
+    label: "Office Hours",
     value: "Mon – Sat: 8:00 AM – 3:00 PM",
     color: "var(--school-gold-dark)",
     bgColor: "var(--school-gold-light)",
@@ -65,7 +65,7 @@ export function Contact() {
       />
 
       {/* ─── CONTACT CARDS ────────────────────────────────── */}
-      <section className="py-12 md:py-14 relative overflow-hidden">
+      <section className="py-12 md:py-14 relative overflow-hidden bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactDetails.map((item, i) => {
@@ -73,7 +73,7 @@ export function Contact() {
               return (
                 <div
                   key={item.label}
-                  className="p-8 rounded-xl bg-white border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group animate-in fade-in slide-in-from-bottom-8"
+                  className="p-8 rounded-xl bg-green-50 border border-slate-100 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group animate-in fade-in slide-in-from-bottom-8"
                   style={{ animationDelay: `${i * 100}ms` }}
                 >
                   <div
@@ -84,11 +84,11 @@ export function Contact() {
                   </div>
                   <h3 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-2">{item.label}</h3>
                   {item.href ? (
-                    <a href={item.href} className="text-school-green-dark text-base leading-tight hover:text-school-gold transition-colors block">
+                    <a href={item.href} className="text-school-green-dark text-base leading-tight hover:text-school-gold transition-colors block break-words">
                       {item.value}
                     </a>
                   ) : (
-                    <p className="text-school-green-dark text-base leading-tight">{item.value}</p>
+                    <p className="text-school-green-dark text-base leading-tight break-words">{item.value}</p>
                   )}
                 </div>
               )
@@ -121,18 +121,28 @@ export function Contact() {
               </div>
 
               {/* Map Container */}
-              <div className="relative group">
-                <div className="absolute -inset-4 bg-school-green/5 rounded-3xl blur-2xl group-hover:bg-school-gold/10 transition-colors" />
-                <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden border-4 md:border-8 border-white shadow-2xl z-10">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5!2d77.1589!3d28.6389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM4JzIwLjAiTiA3N8KwMDknMzIuMCJF!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
-                    className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
-                    style={{ border: 0 }}
-                    allowFullScreen
-                    loading="lazy"
-                    title="School Location"
-                  />
+              <div className="space-y-6">
+                <div className="relative group">
+                  <div className="absolute -inset-4 bg-school-green/5 rounded-3xl blur-2xl group-hover:bg-school-gold/10 transition-colors" />
+                  <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden border-4 md:border-8 border-white shadow-2xl z-10">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.87068275133!2d77.16307037550192!3d28.66359047564777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d02e92977c1d3%3A0xea6c880c778a1c5b!2sDaffodils%20Convent%20School!5e0!3m2!1sen!2sin!4v1777970159255!5m2!1sen!2sin"
+                      className="w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      title="School Location"
+                    />
+                  </div>
                 </div>
+                
+                <Button asChild variant="outline" className="w-full h-14 rounded-xl border-2 border-slate-200 text-slate-600 font-black hover:bg-school-green-dark hover:text-white hover:border-school-green-dark transition-all gap-3 shadow-lg">
+                  <a href="https://maps.app.goo.gl/Th3bqSCA8tg4LKxb7" target="_blank" rel="noreferrer">
+                    <MapPin className="h-5 w-5 text-school-gold" />
+                    Open in Google Maps
+                    <ExternalLink className="h-4 w-4 opacity-50" />
+                  </a>
+                </Button>
               </div>
             </div>
 

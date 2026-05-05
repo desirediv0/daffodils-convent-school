@@ -38,6 +38,9 @@ const config: Config = {
         "school-gold-dark": "var(--school-gold-dark)",
         "school-gold-light": "var(--school-gold-light)",
       },
+      fontFamily: {
+        georgia: ["Georgia", "serif"],
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

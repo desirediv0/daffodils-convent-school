@@ -63,7 +63,7 @@ export function Navbar() {
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-1.5">
               <MapPin className="h-3 w-3 text-[var(--school-gold)]" />
-              114 Line Number 12, Neharu Nagar, New Delhi 110008
+              114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008
             </span>
             <span className="flex items-center gap-1.5 border-l border-white/20 pl-6 ml-2">
               <Phone className="h-3 w-3 text-[var(--school-gold)]" />

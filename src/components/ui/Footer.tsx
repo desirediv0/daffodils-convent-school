@@ -36,21 +36,21 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex flex-col gap-4 mb-8 group">
-              <div className="bg-white/10 p-3 rounded-2xl w-fit group-hover:bg-white/20 transition-all duration-500 backdrop-blur-md border border-white/10">
+              <div className="bg-white p-2 rounded-2xl w-fit  transition-all duration-500 ">
                 <Image
                   src="/logo.png"
                   alt="Daffodils Convent School"
-                  className="h-14 w-auto object-contain brightness-110 group-hover:scale-110 transition-transform duration-500"
+                  className="h-14 w-auto object-contain transition-transform duration-500"
                   width={100}
                   height={100}
                 />
               </div>
               <div>
                 <h2 className="font-black text-xl tracking-tight leading-tight uppercase">
-                  Daffodils <span className="text-[var(--school-gold)]">Convent</span>
+                  Daffodils <span className="text-[var(--school-gold)]">Convent School</span>
                 </h2>
                 <p className="text-[var(--school-gold)] text-[10px] font-bold uppercase tracking-[0.4em] mt-1 opacity-70">
-                  Est. New Delhi
+                  Est. Anand Parbat, New Delhi
                 </p>
               </div>
             </Link>
@@ -132,8 +132,9 @@ export function Footer() {
                 <div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1">Location</p>
                   <p className="text-xs text-white/70 leading-relaxed font-light">
-                    114, Line Number 12, Neharu Nagar,<br />
-                    New Delhi - 110008
+                    114, Street No. 12, Chetan Basti,<br />
+                    Block J, Nehru Nagar, Anand Parbat,<br />
+                    New Delhi, Delhi, 110008
                   </p>
                 </div>
               </div>
@@ -186,4 +187,3 @@ export function Footer() {
     </footer>
   )
 }
-

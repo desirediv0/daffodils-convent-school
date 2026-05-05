@@ -10,13 +10,13 @@ import Link from "next/link"
 
 const activityCategories = [
   {
-    title: "Performing Arts & Music",
+    title: "Performing Arts & Music/Dance",
     icon: Music,
     color: "var(--school-green)",
     bgColor: "var(--school-green-light)",
     image: "/cultural-performance-2.jpeg",
     description: "With professionals on board, we take pride in training our students in art forms like dance, drama, painting and more. We organize exhibitions, concerts and musical events to encourage our students to own their talent and flourish in those fields.",
-    activities: ["Classical Dance", "Western Dance", "Instrumental Music", "Vocal Training", "Drama & Theatre", "Painting & Sketching", "Musical Concerts", "Art Exhibitions"],
+    activities: ["Classical Dance", "Western Dance", "Instrumental Music", "Vocal Training", "Drama & Theatre", "Painting & Sketching", "Musical Concerts", "Art Exhibitions", "Indian Classical Dance", "Indian Classical Music", "Indian Traditional Music", "Indian Traditional Dance", "Indian Traditional Theatre"],
   },
   {
     title: "Yoga",
@@ -108,8 +108,8 @@ export function BeyondActivities() {
             {[
               { label: "Sports", icon: Trophy, count: "15+" },
               { label: "Arts", icon: Palette, count: "10+" },
-              { label: "Music", icon: Music, count: "12+" },
-              { label: "Clubs", icon: Globe, count: "08+" },
+              { label: "Music & Dance", icon: Music, count: "12+" },
+              { label: "Council Clubs", icon: Globe, count: "08+" },
             ].map((stat, i) => (
               <div key={stat.label} className="flex flex-col items-center p-6 rounded-2xl bg-slate-50 border border-slate-100 animate-in fade-in zoom-in duration-700" style={{ animationDelay: `${i * 100}ms` }}>
                 <stat.icon className="h-8 w-8 md:h-10 md:w-10 text-school-green mb-3" />

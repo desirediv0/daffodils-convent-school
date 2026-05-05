@@ -70,7 +70,7 @@ export function About() {
 
               <div className="space-y-6 text-slate-700 leading-relaxed text-lg">
                 <p>
-                  Daffodils Convent School, located at Neharu Nagar, Anand Parvat, New Delhi, is a nurturing space where education blends with values, creativity, and discipline. Established with the vision of empowering young minds, the school provides holistic learning opportunities for students from Preschool to Class VIII.
+                  Daffodils Convent School, located at 114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008, is a nurturing space where education blends with values, creativity, and discipline. Established with the vision of empowering young minds, the school provides holistic learning opportunities for students from Preschool to Class VIII.
                 </p>
                 <p>
                   We believe that every child is unique and deserves an environment that fosters curiosity, confidence, and character. Our classrooms are vibrant centers of learning, guided by dedicated teachers who inspire students to discover their potential and grow into responsible citizens.
