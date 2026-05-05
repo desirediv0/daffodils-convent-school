@@ -70,6 +70,9 @@ const galleryImages = [
   { src: "/traditional-dress-group.jpeg", alt: "Students in traditional dress", span: "" },
   { src: "/classroom-activity.jpeg", alt: "Students in classroom", span: "" },
   { src: "/group-dance-green.jpeg", alt: "Group dance in green costume", span: "" },
+  { src: "/Festive_Duo.jpeg", alt: "Students in festive school attire", span: "" },
+  { src: "/Green_Beginnings.jpeg", alt: "Students gardening activity", span: "" },
+  { src: "/School_Band.jpeg", alt: "School marching band performance", span: "" },
 ];
 
 const highlights = [
