@@ -27,7 +27,7 @@ export function About() {
             <div className="relative group animate-in fade-in slide-in-from-left-12 duration-1000">
               <div className="relative aspect-square sm:aspect-[4/3] lg:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
                 <Image
-                  src="/classroom-activity.jpeg"
+                  src="/School_Band.jpeg"
                   alt="Daffodils Convent School Legacy"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   width={800}

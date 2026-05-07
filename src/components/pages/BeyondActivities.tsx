@@ -23,9 +23,9 @@ const activityCategories = [
     icon: Heart,
     color: "var(--school-gold-dark)",
     bgColor: "var(--school-gold-light)",
-    image: "/yoga-performance.jpeg",
-    description: "Yoga is an integral part of our school’s commitment to holistic education, nurturing both physical well-being and mental balance. Through regular practice, students develop flexibility, strength, concentration, and emotional resilience, while learning the importance of mindfulness and self-discipline. Rooted in our rich heritage yet deeply relevant in today’s fast-paced world, yoga empowers our learners to lead healthy, focused, and harmonious lives.",
-    activities: ["Asanas", "Pranayama", "Meditation", "Flexibility Training", "Mental Focus", "Breathing Exercises", "Self-Discipline", "Emotional Balance"],
+    image: "/yoga (5).jpeg",
+    description: "Yoga is an integral part of our school’s commitment to holistic education. Our students regularly participate and excel in prestigious events like the Inter-school Zone 16 Yoga Competition, demonstrating exceptional skill, focus, and discipline. Through regular practice, students develop flexibility, strength, and emotional resilience, while learning the importance of mindfulness and self-discipline. Rooted in our heritage, yoga empowers our learners to lead healthy, focused, and harmonious lives.",
+    activities: ["Inter-school Zone 16 Competition", "Asanas", "Pranayama", "Meditation", "Flexibility Training", "Mental Focus", "Breathing Exercises", "Self-Discipline", "Emotional Balance"],
   },
   {
     title: "Sports",
@@ -37,31 +37,35 @@ const activityCategories = [
     activities: ["Cricket", "Football", "Badminton", "Table Tennis", "Athletics", "Basketball", "Leadership Training", "Team Building"],
   },
 ]
-
-
-
 const galleryImages = [
-  { src: "/annual-function-dance-1.jpeg", alt: "Students performing cultural dance", span: "col-span-2 row-span-2" },
-  { src: "/annual-function-dance-2.jpeg", alt: "Group dance performance", span: "" },
-  { src: "/award-ceremony-1.jpeg", alt: "Student receiving award", span: "" },
-  { src: "/stage-performance-1.jpeg", alt: "Stage performance by students", span: "" },
-  { src: "/principal-speech.jpeg", alt: "Principal giving speech", span: "" },
-  { src: "/school-event-group.jpeg", alt: "Guests and staff on stage", span: "" },
-  { src: "/annual-function-audience.jpeg", alt: "Audience at school event", span: "" },
-
-  { src: "/cultural-performance-2.jpeg", alt: "Students performing on stage", span: "" },
-  { src: "/dance-performance-white-theme.jpeg", alt: "Dance performance in white costume", span: "" },
-  { src: "/cultural-dance-performance.jpeg", alt: "Students performing cultural dance on stage", span: "" },
-  { src: "/sports-activity.jpeg", alt: "Students playing indoor sports", span: "" },
-  { src: "/martial-arts-performance.jpeg", alt: "Martial arts activity", span: "" },
-  { src: "/school-trip-jeep.jpeg", alt: "Students enjoying school trip", span: "" },
-  { src: "/kids-play-area.jpeg", alt: "Kids playing in activity area", span: "" },
-
-  { src: "/nature-visit.jpeg", alt: "Students in nature visit", span: "" },
-  { src: "/yoga-performance.jpeg", alt: "Yoga performance by students", span: "" },
-  { src: "/traditional-dress-group.jpeg", alt: "Students in traditional dress", span: "" },
-  { src: "/classroom-activity.jpeg", alt: "Students in classroom", span: "" },
-  { src: "/group-dance-green.jpeg", alt: "Group dance in green costume", span: "" },
+  { src: "/annual-function-dance-1.jpeg", alt: "Students performing cultural dance" },
+  { src: "/annual-function-dance-2.jpeg", alt: "Group dance performance" },
+  { src: "/yoga (1).jpeg", alt: "Zone 16 Yoga Competition Performance" },
+  { src: "/award-ceremony-1.jpeg", alt: "Student receiving award" },
+  { src: "/yoga (2).jpeg", alt: "Yoga Competition Stage Moment" },
+  { src: "/stage-performance-1.jpeg", alt: "Stage performance by students" },
+  { src: "/principal-speech.jpeg", alt: "Principal giving speech" },
+  { src: "/yoga (3).jpeg", alt: "Inter-school Yoga Championship" },
+  { src: "/school-event-group.jpeg", alt: "Guests and staff on stage" },
+  { src: "/annual-function-audience.jpeg", alt: "Audience at school event" },
+  { src: "/yoga (4).jpeg", alt: "Students performing Yoga Asanas" },
+  { src: "/cultural-performance-2.jpeg", alt: "Students performing on stage" },
+  { src: "/dance-performance-white-theme.jpeg", alt: "Dance performance in white costume" },
+  { src: "/yoga (6).jpeg", alt: "Yoga Competition Highlights" },
+  { src: "/cultural-dance-performance.jpeg", alt: "Students performing cultural dance on stage" },
+  { src: "/sports-activity.jpeg", alt: "Students playing indoor sports" },
+  { src: "/yoga (7).jpeg", alt: "Zone 16 Championship Winners" },
+  { src: "/martial-arts-performance.jpeg", alt: "Martial arts activity" },
+  { src: "/school-trip-jeep.jpeg", alt: "Students enjoying school trip" },
+  { src: "/kids-play-area.jpeg", alt: "Kids playing in activity area" },
+  { src: "/yoga (8).jpeg", alt: "Yoga Team Performance" },
+  { src: "/nature-visit.jpeg", alt: "Students in nature visit" },
+  { src: "/yoga-performance.jpeg", alt: "Yoga performance by students" },
+  { src: "/traditional-dress-group.jpeg", alt: "Students in traditional dress" },
+  { src: "/Green_Beginnings.jpeg", alt: "Students in classroom" },
+  { src: "/group-dance-green.jpeg", alt: "Group dance in green costume" },
+  { src: "/art-activity.webp", alt: "Creative art session" },
+  { src: "/cultural-event.webp", alt: "Cultural celebration" },
 ];
 
 
@@ -210,25 +214,19 @@ export function BeyondActivities() {
             <h2 className="text-4xl font-black text-school-green-dark">Moments that Define Us</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[200px]">
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {galleryImages.map((img, i) => (
               <div
-                key={img.alt}
-                className={cn(
-                  "relative overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000",
-                  i === 0 ? "md:col-span-2 md:row-span-2" : "",
-                  i === 1 ? "md:col-span-2" : "",
-                  i === 2 ? "md:row-span-2" : "",
-                  i === 5 ? "md:col-span-2" : ""
-                )}
+                key={i}
+                className="relative break-inside-avoid overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
                   width={600}
-                  height={600}
+                  height={800}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
                   <span className="text-school-gold font-bold text-xs uppercase tracking-widest mb-1">Activity Snapshot</span>

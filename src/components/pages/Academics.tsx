@@ -3,7 +3,6 @@ import { BookOpen, FlaskConical, Globe, Calculator, Palette, Music, CheckCircle2
 import { Badge } from "@/components/ui/badge"
 import { PageHero } from "@/components/ui/PageHero"
 import Image from "next/image"
-import { cn } from "@/lib/utils"
 
 
 const teachingApproach = [
@@ -149,7 +148,7 @@ export function Academics() {
             <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-right-12 duration-1000">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
                 <Image
-                  src="/classroom-activity.jpeg"
+                  src="/Festive_Duo.jpeg"
                   alt="Primary Section Students"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   width={600}
@@ -247,28 +246,28 @@ export function Academics() {
             <h2 className="text-4xl font-black text-school-green-dark">World-Class Infrastructure</h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 auto-rows-[250px]">
+          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {[
-              { src: "/classroom-activity.jpeg", label: "Smart Classrooms", span: "md:col-span-2 md:row-span-2" },
-              { src: "/nature-visit.jpeg", label: "Science Laboratory", span: "md:col-span-2" },
-              { src: "/traditional-dress-group.jpeg", label: "Digital Library", span: "md:row-span-2" },
-              { src: "/cultural-performance-2.jpeg", label: "Creative Art Studio", span: "" },
-              { src: "/kids-play-area.jpeg", label: "Computer Center", span: "md:col-span-2" },
+              { src: "/classroom-students.webp", label: "Smart Classrooms" },
+              { src: "/science-lab.webp", label: "Science Laboratory" },
+              { src: "/school-library.webp", label: "Digital Library" },
+              { src: "/art-activity.webp", label: "Creative Art Studio" },
+              { src: "/computer-lab.webp", label: "Computer Center" },
+              { src: "/Green_Beginnings.jpeg", label: "Science Garden" },
+              { src: "/kids-play-area.jpeg", label: "Indoor Play Area" },
+              { src: "/cultural-event.webp", label: "Activity Hall" },
             ].map((f, i) => (
               <div
                 key={f.label}
-                className={cn(
-                  "relative overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000",
-                  f.span
-                )}
+                className="relative break-inside-avoid overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <Image
                   src={f.src}
                   alt={f.label}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
                   width={600}
-                  height={600}
+                  height={800}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
                   <span className="text-school-gold font-bold text-xs uppercase tracking-widest mb-1">Modern Facility</span>
