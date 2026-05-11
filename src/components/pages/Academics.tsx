@@ -148,7 +148,7 @@ export function Academics() {
             <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-right-12 duration-1000">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
                 <Image
-                  src="/Festive_Duo.jpeg"
+                  src="/classroom-activity.jpeg"
                   alt="Primary Section Students"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   width={600}
@@ -175,8 +175,8 @@ export function Academics() {
             <div className="lg:col-span-5 lg:order-1 relative group animate-in fade-in slide-in-from-left-12 duration-1000">
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
                 <Image
-                  src="/nature-visit.jpeg"
-                  alt="Middle Section Science Lab"
+                  src="/classroom-students.jpeg"
+                  alt="Middle Section Students"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   width={600}
                   height={800}
@@ -248,14 +248,14 @@ export function Academics() {
 
           <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {[
-              { src: "/classroom-students.webp", label: "Smart Classrooms" },
-              { src: "/science-lab.webp", label: "Science Laboratory" },
-              { src: "/school-library.webp", label: "Digital Library" },
-              { src: "/art-activity.webp", label: "Creative Art Studio" },
-              { src: "/computer-lab.webp", label: "Computer Center" },
+              { src: "/School_Band.jpeg", label: "Music & Band" },
+              { src: "/martial-arts-performance.jpeg", label: "Self Defense" },
+              { src: "/sports-activity.jpeg", label: "Sports Complex" },
               { src: "/Green_Beginnings.jpeg", label: "Science Garden" },
               { src: "/kids-play-area.jpeg", label: "Indoor Play Area" },
-              { src: "/cultural-event.webp", label: "Activity Hall" },
+              { src: "/cultural-dance-performance.jpeg", label: "Cultural Hall" },
+              { src: "/dance-performance-white-theme.jpeg", label: "Performing Arts" },
+              { src: "/group-dance-green.jpeg", label: "Activity Zone" },
             ].map((f, i) => (
               <div
                 key={f.label}
