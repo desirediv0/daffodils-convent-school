@@ -124,9 +124,9 @@ export function InformationHub() {
 
               {/* 1. RULES AND REGULATIONS */}
               <div id="rules" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-                <div className="flex items-center gap-4 mb-12">
+                <div className="flex items-center gap-4 mb-8">
                   <div
-                    className="h-14 w-14 rounded-2xl flex items-center justify-center text-white shadow-xl"
+                    className="h-14 w-14 rounded-xl flex items-center justify-center text-white shadow-xl"
                     style={{ backgroundColor: colors.greenDark }}
                   >
                     <ScrollText className="h-7 w-7" />
@@ -220,9 +220,9 @@ export function InformationHub() {
 
               {/* 2. ADMISSIONS */}
               <div id="admissions" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-                <div className="flex items-center gap-4 mb-12">
+                <div className="flex items-center gap-4 mb-8">
                   <div
-                    className="h-14 w-14 rounded-2xl flex items-center justify-center text-school-green-dark shadow-xl"
+                    className="h-14 w-14 rounded-xl flex items-center justify-center text-school-green-dark shadow-xl"
                     style={{ backgroundColor: colors.gold }}
                   >
                     <GraduationCap className="h-7 w-7" />
@@ -306,9 +306,9 @@ export function InformationHub() {
 
               {/* 3. PARENTS / GUARDIANS */}
               <div id="parents" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-                <div className="flex items-center gap-4 mb-12">
+                <div className="flex items-center gap-4 mb-8">
                   <div
-                    className="h-14 w-14 rounded-2xl flex items-center justify-center text-white shadow-xl"
+                    className="h-14 w-14 rounded-xl flex items-center justify-center text-white shadow-xl"
                     style={{ backgroundColor: colors.greenDark }}
                   >
                     <Users className="h-7 w-7" />
@@ -371,14 +371,14 @@ export function InformationHub() {
               {/* 4. ASR FELLOWSHIP AWARD */}
               <div id="asr" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
                 <Card
-                  className="p-8 md:p-16 border-none text-white relative overflow-hidden rounded-[3rem]"
+                  className="p-8 md:p-16 border-none text-white relative overflow-hidden rounded-xl"
                   style={{ backgroundColor: colors.slateDark }}
                 >
                   <div className="absolute top-0 right-0 w-[40%] h-full bg-school-gold/10 -skew-x-12 translate-x-1/2 blur-3xl" />
                   <div className="relative z-10 grid grid-cols-1 xl:grid-cols-12 gap-16 items-center">
                     <div className="xl:col-span-8">
                       <Badge className="mb-6 bg-school-gold text-school-green-dark font-black tracking-widest px-4 py-1">ACADEMIC EXCELLENCE</Badge>
-                      <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight">4. ASR Fellowship Award</h2>
+                      <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">4. ASR Fellowship Award</h2>
                       <p className="text-xl text-white/80 leading-relaxed font-medium">
                         To ensure that the school children achieve their academic excellence and strive for that little extra, an annual event took shape in the year 2025 as the <span className="text-school-gold font-black">ASR (Anand Singh Routela) Fellowship Exam</span>.
                       </p>
@@ -405,8 +405,8 @@ export function InformationHub() {
 
               {/* 5. SLFRC COMMITTEE */}
               <div id="slfrc" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-                <div className="flex items-center gap-4 mb-12">
-                  <div className="h-14 w-14 rounded-2xl bg-school-green flex items-center justify-center text-school-green-dark shadow-xl">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="h-14 w-14 rounded-xl bg-school-green flex items-center justify-center text-school-green-dark shadow-xl">
                     <FileText className="h-7 w-7" />
                   </div>
                   <div>
@@ -428,9 +428,9 @@ export function InformationHub() {
 
               {/* 6. STUDENT COUNCIL */}
               <div id="council" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
-                <div className="flex items-center gap-4 mb-12">
+                <div className="flex items-center gap-4 mb-8">
                   <div
-                    className="h-14 w-14 rounded-2xl flex items-center justify-center text-white shadow-xl"
+                    className="h-14 w-14 rounded-xl flex items-center justify-center text-white shadow-xl"
                     style={{ backgroundColor: colors.greenDark }}
                   >
                     <Users className="h-7 w-7" />
@@ -441,7 +441,7 @@ export function InformationHub() {
                   </div>
                 </div>
 
-                <div className="bg-slate-50 p-12 rounded-[2.5rem] border border-slate-100 shadow-sm mb-12 relative overflow-hidden">
+                <div className="bg-slate-50 p-12 rounded-xl border border-slate-100 shadow-sm mb-12 relative overflow-hidden">
                   <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500" />
                   <h3 className="text-2xl font-black text-school-green-dark mb-6">The House System</h3>
                   <p className="text-slate-600 text-lg leading-relaxed font-medium mb-12 max-w-5xl">

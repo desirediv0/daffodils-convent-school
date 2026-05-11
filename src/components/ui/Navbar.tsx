@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, GraduationCap, Phone, Mail, MapPin, ArrowUpRight } from "lucide-react"
+import { Menu, X, GraduationCap, Phone, Mail, MapPin, ArrowUpRight, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
@@ -14,7 +14,18 @@ const navLinks = [
   { label: "About", href: "/about" },
   { label: "Beyond Activities", href: "/beyond-activities" },
   { label: "Academics", href: "/academics" },
-  { label: "Information Hub", href: "/information-hub" },
+  { 
+    label: "Information Hub", 
+    href: "/information-hub",
+    subLinks: [
+      { label: "Rules & Regulations", href: "/information-hub#rules" },
+      { label: "Admissions", href: "/information-hub#admissions" },
+      { label: "Parents / Guardians", href: "/information-hub#parents" },
+      { label: "ASR Fellowship Award", href: "/information-hub#asr" },
+      { label: "SLFRC Committee", href: "/information-hub#slfrc" },
+      { label: "Student Council", href: "/information-hub#council" },
+    ]
+  },
   { label: "Contact", href: "/contact" },
 ]
 
@@ -120,7 +131,45 @@ export function Navbar() {
         {/* Desktop Links */}
         <div className="hidden lg:flex items-center gap-1 bg-black/5 rounded-full p-1 backdrop-blur-sm border border-white/10">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href
+            const isActive = pathname === link.href || (link.subLinks && pathname.startsWith(link.href))
+            
+            if (link.subLinks) {
+              return (
+                <div key={link.href} className="relative group/dropdown">
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-1.5 group/btn",
+                      isActive
+                        ? "text-white bg-[var(--school-green)] shadow-md"
+                        : scrolled
+                          ? "text-[var(--school-green-dark)] hover:text-[var(--school-green)] hover:bg-white/50"
+                          : "text-white/90 hover:text-white hover:bg-white/10"
+                    )}
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
+                  </Link>
+                  
+                  {/* Dropdown Menu */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-300 z-[120]">
+                    <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 min-w-[220px]">
+                      {link.subLinks.map((sub) => (
+                        <Link
+                          key={sub.href}
+                          href={sub.href}
+                          className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-bold text-slate-600 hover:bg-slate-50 hover:text-school-green-dark transition-all"
+                        >
+                          <div className="h-1.5 w-1.5 rounded-full bg-school-gold" />
+                          {sub.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+
             return (
               <Link
                 key={link.href}
@@ -211,7 +260,49 @@ export function Navbar() {
               <div className="flex flex-col gap-2">
                 <p className="text-[10px]  uppercase tracking-[0.4em] text-white/30 mb-4 px-4">Menu</p>
                 {navLinks.map((link, i) => {
-                  const isActive = pathname === link.href
+                  const isActive = pathname === link.href || (link.subLinks && pathname.startsWith(link.href))
+                  
+                  if (link.subLinks) {
+                    return (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.05 + 0.1 }}
+                        className="flex flex-col"
+                      >
+                        <div className="flex flex-col gap-1">
+                          <Link
+                            href={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className={cn(
+                              "flex items-center justify-between px-6 py-4 rounded-xl text-lg transition-all duration-300",
+                              isActive
+                                ? "bg-[var(--school-gold)] text-[#0d2d23] shadow-lg"
+                                : "text-white/90 hover:bg-white/5"
+                            )}
+                          >
+                            {link.label}
+                            <ChevronDown className={cn("h-5 w-5 transition-transform", isActive ? "rotate-180" : "")} />
+                          </Link>
+                          
+                          <div className="grid grid-cols-1 gap-1 ml-4 border-l border-white/10 pl-4 mt-2 mb-4">
+                            {link.subLinks.map((sub) => (
+                              <Link
+                                key={sub.href}
+                                href={sub.href}
+                                onClick={() => setIsOpen(false)}
+                                className="px-4 py-3 rounded-xl text-sm font-bold text-white/60 hover:text-white hover:bg-white/5 transition-all"
+                              >
+                                {sub.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )
+                  }
+
                   return (
                     <motion.div
                       key={link.href}
@@ -221,6 +312,7 @@ export function Navbar() {
                     >
                       <Link
                         href={link.href}
+                        onClick={() => setIsOpen(false)}
                         className={cn(
                           "flex items-center justify-between px-6 py-4 rounded-xl text-lg  transition-all duration-300",
                           isActive
