@@ -2,12 +2,14 @@
 "use client"
 import { useState } from "react"
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, MessageSquare, ExternalLink, Sparkles } from "lucide-react"
+import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { PageHero } from "@/components/ui/PageHero"
+import { cn } from "@/lib/utils"
 
 const contactDetails = [
   {
@@ -136,7 +138,7 @@ export function Contact() {
                     />
                   </div>
                 </div>
-                
+
                 <Button asChild variant="outline" className="w-full h-14 rounded-xl border-2 border-slate-200 text-slate-600 font-black hover:bg-school-green-dark hover:text-white hover:border-school-green-dark transition-all gap-3 shadow-lg">
                   <a href="https://maps.app.goo.gl/Th3bqSCA8tg4LKxb7" target="_blank" rel="noreferrer">
                     <MapPin className="h-5 w-5 text-school-gold" />
@@ -144,6 +146,31 @@ export function Contact() {
                     <ExternalLink className="h-4 w-4 opacity-50" />
                   </a>
                 </Button>
+
+                {/* Social Media Links */}
+                <div className="pt-8 border-t border-slate-200">
+                  <p className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Stay Connected</p>
+                  <div className="flex gap-4">
+                    {[
+                      { icon: FaInstagram, color: "hover:bg-pink-600", href: "https://www.instagram.com/daffodilsconventschool" },
+                      { icon: FaFacebookF, color: "hover:bg-blue-600", href: "https://www.facebook.com/share/1E2jA5NuJG/" },
+                      { icon: FaYoutube, color: "hover:bg-red-600", href: "https://youtube.com/@daffodilsschool8512?si=g2qjQM6aYJB35Q8r" },
+                    ].map((s, i) => (
+                      <a
+                        key={i}
+                        href={s.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={cn(
+                          "h-12 w-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-slate-400 transition-all duration-300 hover:text-white shadow-sm",
+                          s.color
+                        )}
+                      >
+                        <s.icon className="h-5 w-5" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 

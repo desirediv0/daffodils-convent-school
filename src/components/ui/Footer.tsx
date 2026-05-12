@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, Heart, ArrowUpRight } from "lucide-react"
-import { FaInstagram, } from "react-icons/fa"
+import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 import Image from "next/image"
@@ -61,6 +61,8 @@ export function Footer() {
             <div className="flex items-center gap-3">
               {[
                 { icon: FaInstagram, label: "Instagram", href: "https://www.instagram.com/daffodilsconventschool" },
+                { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1E2jA5NuJG/" },
+                { icon: FaYoutube, label: "YouTube", href: "https://youtube.com/@daffodilsschool8512?si=g2qjQM6aYJB35Q8r" },
               ].map(({ icon: Icon, label, href }) => (
                 <Link
                   key={label}

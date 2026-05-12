@@ -1,8 +1,12 @@
+"use client"
 
 import { BookOpen, FlaskConical, Globe, Calculator, Palette, Music, CheckCircle2, Laptop, UserCheck, BarChart3, Microscope, Baby, BookOpenCheck } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { PageHero } from "@/components/ui/PageHero"
 import Image from "next/image"
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { cn } from "@/lib/utils"
 
 const prePrimarySubjects = [
   { icon: Baby, name: "Phonics & Language" },
@@ -54,6 +58,54 @@ const middleSubjects = [
   { icon: Laptop, name: "Computer Sci." },
   { icon: BookOpen, name: "Third Lang." },
 ]
+
+function FloatingCarousel({ images, title }: { images: string[], title: string }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [images.length])
+
+  return (
+    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white group">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, scale: 1.1, x: 20 }}
+          animate={{ opacity: 1, scale: 1, x: 0 }}
+          exit={{ opacity: 0, scale: 0.9, x: -20 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={images[currentIndex]}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            width={600}
+            height={800}
+          />
+        </motion.div>
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-school-green-dark/10 group-hover:bg-transparent transition-colors duration-500" />
+      
+      {/* Indicator dots */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+        {images.map((_, i) => (
+          <div 
+            key={i} 
+            className={cn(
+              "h-1.5 rounded-full transition-all duration-300",
+              i === currentIndex ? "w-6 bg-school-gold" : "w-1.5 bg-white/50"
+            )} 
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export function Academics() {
   return (
@@ -213,15 +265,10 @@ export function Academics() {
 
             {/* Image side */}
             <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-right-12 duration-1000">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
-                <Image
-                  src="/classroom-activity.jpeg"
-                  alt="Primary Section Students"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  width={600}
-                  height={800}
-                />
-              </div>
+              <FloatingCarousel 
+                images={["/card1 (1).jpeg", "/card1 (2).jpeg", "/classroom-activity.jpeg"]} 
+                title="Primary Section Students" 
+              />
               <div className="absolute -bottom-10 -left-10 w-full h-full border-2 border-school-green/10 rounded-2xl -z-10 translate-x-4 translate-y-4" />
 
               {/* Floating Badge */}
@@ -240,15 +287,10 @@ export function Academics() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Image side */}
             <div className="lg:col-span-5 lg:order-1 relative group animate-in fade-in slide-in-from-left-12 duration-1000">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
-                <Image
-                  src="/classroom-students.jpeg"
-                  alt="Middle Section Students"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  width={600}
-                  height={800}
-                />
-              </div>
+              <FloatingCarousel 
+                images={["/card1 (3).jpeg", "/card1 (4).jpeg", "/classroom-students.jpeg"]} 
+                title="Middle Section Students" 
+              />
               <div className="absolute -top-10 -right-10 w-full h-full border-2 border-school-gold/20 rounded-2xl -z-10 translate-x-4 translate-y-4" />
 
               {/* Floating Badge */}
