@@ -12,6 +12,7 @@ const navItems = [
   { id: "rules", label: "Rules & Regulations", icon: ScrollText },
   { id: "admissions", label: "Admissions", icon: GraduationCap },
   { id: "parents", label: "Parents / Guardians", icon: Users },
+  { id: "holidays", label: "Holiday List 2026-27", icon: Calendar },
   { id: "asr", label: "ASR Fellowship Award", icon: Trophy },
   { id: "slfrc", label: "SLFRC Committee", icon: FileText },
   { id: "council", label: "Student Council", icon: Users },
@@ -237,16 +238,21 @@ export function InformationHub() {
                   <div className="xl:col-span-7 space-y-8">
                     <Card className="p-10 border-none bg-slate-50 rounded-3xl">
                       <h3 className="text-xl font-black text-school-green-dark mb-6">Eligibility Criteria</h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm text-center">
                           <p className="text-school-gold-dark font-black text-sm uppercase mb-1">Nursery</p>
                           <p className="text-slate-700 font-black text-xl">3+ Years</p>
-                          <p className="text-slate-500 text-xs mt-1">As on 31st March 2026</p>
+                          <p className="text-slate-500 text-[10px] mt-1">As on 31st March 2026</p>
                         </div>
-                        <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                        <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm text-center">
                           <p className="text-school-gold-dark font-black text-sm uppercase mb-1">LKG</p>
                           <p className="text-slate-700 font-black text-xl">4+ Years</p>
-                          <p className="text-slate-500 text-xs mt-1">As on 31st March 2026</p>
+                          <p className="text-slate-500 text-[10px] mt-1">As on 31st March 2026</p>
+                        </div>
+                        <div className="p-6 bg-white rounded-2xl border border-slate-100 shadow-sm text-center">
+                          <p className="text-school-gold-dark font-black text-sm uppercase mb-1">UKG / K.G.</p>
+                          <p className="text-slate-700 font-black text-xl">5+ Years</p>
+                          <p className="text-slate-500 text-[10px] mt-1">As on 31st March 2026</p>
                         </div>
                       </div>
                     </Card>
@@ -365,6 +371,79 @@ export function InformationHub() {
                       <p className="text-slate-500 text-sm font-bold leading-relaxed">{item.d}</p>
                     </Card>
                   ))}
+                </div>
+              </div>
+
+              {/* 3.5 HOLIDAY LIST 2026-27 */}
+              <div id="holidays" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+                <div className="flex items-center gap-4 mb-8">
+                  <div
+                    className="h-14 w-14 rounded-xl flex items-center justify-center text-school-green-dark shadow-xl"
+                    style={{ backgroundColor: colors.gold }}
+                  >
+                    <Calendar className="h-7 w-7" />
+                  </div>
+                  <div>
+                    <h2 className="text-4xl font-black text-school-green-dark">List of Holidays 2026-27</h2>
+                    <p className="text-school-gold-dark font-bold text-xs uppercase tracking-[0.2em]">Academic Calendar & Breaks</p>
+                  </div>
+                </div>
+
+                <div className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-xl">
+                  <div className="grid grid-cols-1 md:grid-cols-12 bg-school-green-dark text-white font-black text-sm uppercase tracking-widest p-4">
+                    <div className="md:col-span-3 px-4">Month</div>
+                    <div className="md:col-span-9 px-4">Events / Holidays</div>
+                  </div>
+                  <div className="divide-y divide-slate-200">
+                    {[
+                      { month: "APRIL", events: ["GOOD FRIDAY", "AMBEDKER JYANTI", "BAISAKHI"] },
+                      { month: "MAY", events: ["BUDH PURNIMA", "EID-UL-ZUHA"] },
+                      { month: "JUNE", events: ["MUHARRAM", "SUMMER BREAK"] },
+                      { month: "AUGUST", events: ["INDEPENDENCE DAY", "RAKSHA BANDHAN", "MILAD-UL-NABI"] },
+                      { month: "SEPTEMBER", events: ["JANMASHTMI"] },
+                      { month: "OCTOBER", events: ["GANDHI JYANTI", "DUSSEHRA", "VALMIKI JAYNTI"] },
+                      { month: "NOVEMBER", events: ["DIWALI", "BHAI DUJ (BHAIYA DOOJ)", "GURUNANAK JYANTI"] },
+                      { month: "DECEMBER", events: ["CHRISTMAS"] },
+                      { month: "JANUARY", events: ["MAKAR SANKRANTI", "REPUBLIC DAY", "WINTER BREAK"] },
+                      { month: "FEBRUARY", events: ["BASANT PANCHMI"] },
+                      { month: "MARCH", events: ["MAHA SHIVRATRI", "ID-UL-FITR", "HOLI", "GOOD FRIDAY"] },
+                    ].map((item, i) => (
+                      <div key={i} className="grid grid-cols-1 md:grid-cols-12 p-6 hover:bg-white transition-colors group">
+                        <div className="md:col-span-3 px-4 flex items-center">
+                          <span className="font-black text-school-green-dark group-hover:text-school-gold transition-colors">{item.month}</span>
+                        </div>
+                        <div className="md:col-span-9 px-4">
+                          <div className="flex flex-wrap gap-2">
+                            {item.events.map((e, idx) => (
+                              <Badge 
+                                key={idx} 
+                                variant="outline" 
+                                className={cn(
+                                  "px-3 py-1 font-bold text-xs border-2",
+                                  e.includes("BREAK") 
+                                    ? "bg-school-gold/10 border-school-gold text-school-green-dark" 
+                                    : "bg-white border-slate-200 text-slate-600"
+                                )}
+                              >
+                                {e}
+                              </Badge>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="p-6 rounded-2xl bg-school-green/5 border-l-8 border-school-green">
+                    <p className="text-school-green-dark font-black text-lg mb-1">SUMMER BREAK</p>
+                    <p className="text-slate-500 font-bold text-sm">Scheduled during the month of JUNE</p>
+                  </div>
+                  <div className="p-6 rounded-2xl bg-school-gold/5 border-l-8 border-school-gold">
+                    <p className="text-school-green-dark font-black text-lg mb-1">WINTER BREAK</p>
+                    <p className="text-slate-500 font-bold text-sm">Scheduled during the month of JANUARY</p>
+                  </div>
                 </div>
               </div>
 

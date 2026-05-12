@@ -42,18 +42,19 @@ const contactDetails = [
   },
 ]
 
-const classOptions = ["Class I", "Class II", "Class III", "Class IV", "Class V", "Class VI", "Class VII", "Class VIII", "Other"]
+const classOptions = ["Nursery", "LKG", "UKG / K.G.", "Class I", "Class II", "Class III", "Class IV", "Class V", "Class VI", "Class VII", "Class VIII", "Other"]
+const sectionOptions = ["A", "B", "C", "D", "N/A"]
 const subjectOptions = ["Admission Enquiry", "Fee Related", "Academic Concerns", "Transport", "General Info", "Other"]
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({ name: "", phone: "", classFor: "", subject: "", message: "" })
+  const [form, setForm] = useState({ name: "", phone: "", classFor: "", section: "", subject: "", message: "" })
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 5000)
-    setForm({ name: "", phone: "", classFor: "", subject: "", message: "" })
+    setForm({ name: "", phone: "", classFor: "", section: "", subject: "", message: "" })
   }
 
   return (
@@ -181,15 +182,22 @@ export function Contact() {
                         </div>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div className="space-y-3">
                           <Label htmlFor="class" className="text-xs font-black uppercase tracking-widest text-school-green-dark/60 ml-1">Admission For</Label>
                           <select id="class" className="h-14 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-school-green-light" value={form.classFor} onChange={(e) => setForm({ ...form, classFor: e.target.value })}>
-                            <option value="">Select Grade</option>
+                            <option value="">Select Class</option>
                             {classOptions.map(o => <option key={o} value={o}>{o}</option>)}
                           </select>
                         </div>
                         <div className="space-y-3">
+                          <Label htmlFor="section" className="text-xs font-black uppercase tracking-widest text-school-green-dark/60 ml-1">Section</Label>
+                          <select id="section" className="h-14 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-school-green-light" value={form.section} onChange={(e) => setForm({ ...form, section: e.target.value })}>
+                            <option value="">Select Section</option>
+                            {sectionOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                          </select>
+                        </div>
+                        <div className="space-y-3 lg:col-span-1 md:col-span-2 lg:col-auto">
                           <Label htmlFor="subject" className="text-xs font-black uppercase tracking-widest text-school-green-dark/60 ml-1">Inquiry Type *</Label>
                           <select id="subject" required className="h-14 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-school-green-light" value={form.subject} onChange={(e) => setForm({ ...form, subject: e.target.value })}>
                             <option value="">Select Category</option>

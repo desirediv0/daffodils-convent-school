@@ -8,7 +8,7 @@ const quickLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Academics", href: "/academics" },
-  { label: "Activities", href: "/beyond-activities" },
+  { label: "Beyond Academics", href: "/beyond-academics" },
   { label: "Information Hub", href: "/information-hub" },
   { label: "Contact Us", href: "/contact" },
 ]

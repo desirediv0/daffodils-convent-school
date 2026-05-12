@@ -12,8 +12,27 @@ import { motion, AnimatePresence } from "framer-motion"
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Beyond Activities", href: "/beyond-activities" },
-  { label: "Academics", href: "/academics" },
+  { 
+    label: "Beyond Academics", 
+    href: "/beyond-academics",
+    subLinks: [
+      { label: "Performing Arts (Music/Dance)", href: "/beyond-academics#performing-arts" },
+      { label: "Sports", href: "/beyond-academics#sports" },
+      { label: "Yoga", href: "/beyond-academics#yoga" },
+      { label: "Mother's Day Activity", href: "/beyond-academics#mothers-day" },
+      { label: "Experiential Learning", href: "/beyond-academics#experiential" },
+    ]
+  },
+  { 
+    label: "Academics", 
+    href: "/academics",
+    subLinks: [
+      { label: "Pre-Primary (Nur-KG)", href: "/academics#pre-primary" },
+      { label: "Primary Section (I-V)", href: "/academics#primary" },
+      { label: "Middle Section (VI-VIII)", href: "/academics#middle" },
+      { label: "Infrastructure", href: "/academics#infrastructure" },
+    ]
+  },
   { 
     label: "Information Hub", 
     href: "/information-hub",

@@ -1,8 +1,17 @@
 
-import { BookOpen, FlaskConical, Globe, Calculator, Palette, Music, CheckCircle2, Laptop, UserCheck, BarChart3, Microscope, } from "lucide-react"
+import { BookOpen, FlaskConical, Globe, Calculator, Palette, Music, CheckCircle2, Laptop, UserCheck, BarChart3, Microscope, Baby, BookOpenCheck } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { PageHero } from "@/components/ui/PageHero"
 import Image from "next/image"
+
+const prePrimarySubjects = [
+  { icon: Baby, name: "Phonics & Language" },
+  { icon: BookOpenCheck, name: "Foundational Math" },
+  { icon: Palette, name: "Creative Arts" },
+  { icon: Music, name: "Rhymes & Rhythm" },
+  { icon: Globe, name: "World Around Us" },
+  { icon: UserCheck, name: "Social Skills" },
+]
 
 
 const teachingApproach = [
@@ -94,9 +103,67 @@ export function Academics() {
           </div>
         </div>
       </section>
+      {/* ─── PRE-PRIMARY SECTION (NUR & K.G.) ────────────── */}
+      <section id="pre-primary" className="py-12 md:py-14 bg-slate-50 relative overflow-hidden scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            {/* Image side */}
+            <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-left-12 duration-1000">
+              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
+                <Image
+                  src="/Green_Beginnings.jpeg"
+                  alt="Pre-Primary Students"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  width={600}
+                  height={800}
+                />
+              </div>
+              <div className="absolute -top-10 -right-10 w-full h-full border-2 border-school-gold/20 rounded-2xl -z-10 translate-x-4 translate-y-4" />
+
+              {/* Floating Badge */}
+              <div className="absolute -bottom-6 -right-6 bg-school-gold p-6 rounded-2xl shadow-2xl z-20 animate-float">
+                <p className="text-school-green-dark font-black text-3xl">Nur. – K.G.</p>
+                <p className="text-school-green-dark/60 text-[10px] font-bold uppercase tracking-widest">Early Years (Incl. LKG)</p>
+              </div>
+            </div>
+
+            {/* Content side */}
+            <div className="lg:col-span-7 animate-in fade-in slide-in-from-right-12 duration-1000">
+              <Badge
+                className="mb-6 px-4 py-1.5 text-xs font-bold tracking-widest uppercase"
+                style={{ backgroundColor: "var(--school-gold-light)", color: "var(--school-green-dark)" }}
+              >
+                THE EARLY YEARS (NURSERY, LKG & K.G.)
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-black text-school-green-dark mb-8 leading-tight">
+                Pre-Primary: <br />
+                <span className="text-school-gold" style={{ color: "var(--school-gold-dark)" }}>A Joyful Beginning</span>
+              </h2>
+              <div className="space-y-6 text-slate-600 text-lg leading-relaxed mb-10 font-medium">
+                <p>
+                  Our Pre-Primary section provides a warm, nurturing environment where children take their first steps into the world of learning. We focus on play-based education that stimulates curiosity and builds confidence.
+                </p>
+                <p>
+                  The curriculum is designed to develop linguistic, motor, and social skills through interactive sessions, storytelling, and creative play. We ensure each child feels secure and valued while exploring their potential.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-12">
+                {prePrimarySubjects.map(({ icon: Icon, name }) => (
+                  <div key={name} className="flex flex-col gap-3 p-4 rounded-xl bg-white border border-slate-100 hover:border-school-gold/30 transition-colors shadow-sm">
+                    <Icon className="h-6 w-6 text-school-gold-dark" />
+                    <span className="text-sm font-bold text-slate-800">{name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* ─── PRIMARY SECTION (CLASSES I-V) ────────────────── */}
-      <section className="py-12 md:py-14 bg-white relative overflow-hidden">
+      <section id="primary" className="py-12 md:py-14 bg-white relative overflow-hidden scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Content side */}
@@ -168,7 +235,7 @@ export function Academics() {
       </section>
 
       {/* ─── MIDDLE SECTION (CLASSES VI-VIII) ────────────── */}
-      <section className="py-12 md:py-14 bg-slate-50 relative overflow-hidden">
+      <section id="middle" className="py-12 md:py-14 bg-slate-50 relative overflow-hidden scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Image side */}
@@ -234,7 +301,7 @@ export function Academics() {
       </section>
 
       {/* ─── INFRASTRUCTURE (ASYMMETRIC GRID) ─────────────── */}
-      <section className="py-12 md:py-14 bg-white overflow-hidden">
+      <section id="infrastructure" className="py-12 md:py-14 bg-white overflow-hidden scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom-8 duration-700">
             <Badge

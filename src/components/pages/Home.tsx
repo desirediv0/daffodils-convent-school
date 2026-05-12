@@ -280,6 +280,61 @@ export function Home() {
         </div>
       </section>
 
+      {/* ─── NOTICE BOARD (NEW) ─────────────────────────── */}
+      <section className="bg-white py-6 md:py-8 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center gap-6">
+            {/* Label */}
+            <div className="flex items-center gap-3 shrink-0 bg-school-green-dark text-white px-6 py-3 rounded-2xl shadow-xl">
+              <div className="relative">
+                <div className="absolute inset-0 bg-school-gold rounded-full animate-ping opacity-40" />
+                <Star className="h-5 w-5 text-school-gold relative z-10 fill-current" />
+              </div>
+              <span className="font-black text-sm uppercase tracking-widest">Notice Board</span>
+            </div>
+
+            {/* Ticker Content */}
+            <div className="flex-1 w-full overflow-hidden relative h-10 flex items-center bg-slate-50 rounded-2xl px-6 border border-slate-100">
+              <motion.div 
+                className="whitespace-nowrap flex gap-12"
+                animate={{ x: [0, -1000] }}
+                transition={{ 
+                  duration: 30, 
+                  repeat: Infinity, 
+                  ease: "linear" 
+                }}
+              >
+                {[
+                  "Admissions Open for Session 2026-27 (Nursery to Class VIII)",
+                  "Summer Break starts from 1st June 2026",
+                  "Upcoming: Mother's Day Special Assembly on 10th May",
+                  "Holiday Homework for all classes to be uploaded soon",
+                  "Student Council Elections for session 2026-27 scheduled for next week",
+                  "New Yoga & Meditation sessions introduced for Middle Wing",
+                ].map((notice, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="h-2 w-2 rounded-full bg-school-gold" />
+                    <span className="text-school-green-dark font-bold text-sm tracking-tight">{notice}</span>
+                  </div>
+                ))}
+              </motion.div>
+              
+              {/* Fade gradients */}
+              <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-slate-50 to-transparent z-10" />
+              <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-slate-50 to-transparent z-10" />
+            </div>
+
+            {/* Quick Link */}
+            <Button asChild variant="ghost" size="sm" className="shrink-0 text-school-green-dark font-black hover:bg-school-green/5 gap-2 rounded-xl">
+              <Link href="/information-hub#holidays">
+                View Calendar
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* ─── ABOUT PREVIEW ────────────────────────────────── */}
       <section className="py-12 md:py-14 bg-white relative overflow-hidden">
         {/* Background Accents */}
@@ -575,7 +630,7 @@ export function Home() {
               size="lg"
               className="h-14 px-10 rounded-xl gap-3 font-bold border-2 border-school-green text-school-green hover:bg-school-green hover:text-white transition-all duration-300"
             >
-              <Link href="/beyond-activities">
+              <Link href="/beyond-academics">
                 View Full Experience
                 <ArrowRight className="h-5 w-5" />
               </Link>
