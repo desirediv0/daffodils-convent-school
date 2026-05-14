@@ -55,7 +55,7 @@ export function About() {
             {/* Text side */}
             <div className="animate-in fade-in slide-in-from-right-12 duration-1000">
               <Badge
-                className="mb-6 px-4 py-1.5 text-xs font-bold tracking-[0.2em] uppercase border-none"
+                className="mb-6 px-4 py-1.5 text-xs font-bold tracking-[0.2em] uppercase border-none font-beware"
                 style={{
                   backgroundColor: "var(--school-green-light)",
                   color: "var(--school-green-dark)",
@@ -70,13 +70,13 @@ export function About() {
 
               <div className="space-y-6 text-slate-700 leading-relaxed text-lg">
                 <p>
-                  Daffodils Convent School, located at 114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008, is a nurturing space where education blends with values, creativity, and discipline. Established with the vision of empowering young minds, the school provides holistic learning opportunities for students from Preschool to Class VIII.
+                  <span className="font-beware font-black">Daffodils Convent School</span>, located at 114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008, is a nurturing space where education blends with values, creativity, and discipline. Established with the vision of empowering young minds, the school provides holistic learning opportunities for students from Preschool to Class VIII.
                 </p>
                 <p>
                   We believe that every child is unique and deserves an environment that fosters curiosity, confidence, and character. Our classrooms are vibrant centers of learning, guided by dedicated teachers who inspire students to discover their potential and grow into responsible citizens.
                 </p>
                 <p className="italic font-medium text-school-green-dark border-l-4 border-school-gold pl-6 py-2">
-                  &quot;Everyday at the Daffodils Convent School is like a blessing with the active students and talented staff members around.&quot;
+                  &quot;Everyday at the <span className="font-beware font-black">Daffodils Convent School</span> is like a blessing with the active students and talented staff members around.&quot;
                 </p>
               </div>
 
@@ -215,7 +215,7 @@ export function About() {
                     Thus, a vibrant curriculum must reflect on sifting out knowledge that is becoming obsolete or redundant and take the individual into the realm of coexistence with the immediate and future environs. It must make the individual THINK!
                   </p>
                   <p>
-                    Daffodils Convent School, with its excellent blend of cultural ethics and modernity, a personalized curriculum offers the ideal environs for not just discovering oneself and one’s multiple intelligences and talents, but also for preparing them well for the future. Its effective contemporary programs blend judiciously with the Indian ethos; the broad academic programs balances well with a myriad of extra-curricular, social service and self-development opportunities. A competent faculty undergoing regular professional self-enhancement, the school is definitely set on the right path to blend the best of the past with a vibrant future.
+                    <span className="font-beware font-black">Daffodils Convent School</span>, with its excellent blend of cultural ethics and modernity, a personalized curriculum offers the ideal environs for not just discovering oneself and one’s multiple intelligences and talents, but also for preparing them well for the future. Its effective contemporary programs blend judiciously with the Indian ethos; the broad academic programs balances well with a myriad of extra-curricular, social service and self-development opportunities. A competent faculty undergoing regular professional self-enhancement, the school is definitely set on the right path to blend the best of the past with a vibrant future.
                   </p>
                   <p className="text-school-green-dark font-bold">Come, share with us the joy of Progressive Learning!</p>
                 </div>
@@ -306,7 +306,7 @@ export function About() {
                   Hence schooling has to come out of the normal set of boundaries and has to become multi-dimensional, thus meeting our need for quality education. Providing such educational environment to our children has become imperative as India has evolved to be a worthy leader on the world platform.
                 </p>
                 <p>
-                  Daffodils Convent School, with the motto <span className="text-school-green-dark font-black">“Dream-Believe-Achieve”</span>, has been serving the Society in the field of education since 2013 with an open minded functional approach.
+                  <span className="font-beware font-black">Daffodils Convent School</span>, with the motto <span className="text-school-green-dark font-black">“Dream-Believe-Achieve”</span>, has been serving the Society in the field of education since 2013 with an open minded functional approach.
                 </p>
                 <p>
                   As the years have gone by, the school has evolved with the dynamics of world education system ensuring that its students dare to ask questions and not fear from them, always encouraging them to first discover themselves before exploring the world.
@@ -360,7 +360,7 @@ export function About() {
                 <span className="text-school-gold" style={{ color: "var(--school-gold)" }}>Bright Future Today</span>
               </h2>
               <p className="text-white text-lg leading-relaxed max-w-xl mx-auto mb-12">
-                Connect with our admissions team to learn more about how Daffodils Convent School can nurture your child&apos;s unique potential.
+                Connect with our admissions team to learn more about how <span className="font-beware font-black">Daffodils Convent School</span> can nurture your child&apos;s unique potential.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -382,7 +382,7 @@ export function About() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="h-16 px-10 rounded-xl gap-3 font-black text-lg backdrop-blur-md bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-white transition-all duration-300"
+                  className="h-16 px-10 rounded-xl gap-3 font-black text-lg backdrop-blur-md bg-transparent border-white/20 text-white hover:bg-white/10 hover:border-white transition-all duration-300"
                 >
                   <Link href="/contact">
                     Visit Our Campus

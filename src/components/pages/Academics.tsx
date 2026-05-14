@@ -59,7 +59,7 @@ const middleSubjects = [
   { icon: BookOpen, name: "Third Lang." },
 ]
 
-function FloatingCarousel({ images, title }: { images: string[], title: string }) {
+function FloatingCarousel({ images, title, aspectClassName = "aspect-[4/5]" }: { images: string[], title: string, aspectClassName?: string }) {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
@@ -70,7 +70,7 @@ function FloatingCarousel({ images, title }: { images: string[], title: string }
   }, [images.length])
 
   return (
-    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white group">
+    <div className={cn("relative rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white group", aspectClassName)}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -108,6 +108,30 @@ function FloatingCarousel({ images, title }: { images: string[], title: string }
 }
 
 export function Academics() {
+  useEffect(() => {
+    // Handle hash navigation on initial load or hash change
+    const handleHash = () => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          setTimeout(() => {
+            const offset = 100;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }, 100);
+        }
+      }
+    };
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <PageHero
@@ -161,15 +185,11 @@ export function Academics() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Image side */}
             <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-left-12 duration-1000">
-              <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl z-10 border-8 border-white">
-                <Image
-                  src="/Green_Beginnings.jpeg"
-                  alt="Pre-Primary Students"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  width={600}
-                  height={800}
-                />
-              </div>
+              <FloatingCarousel 
+                images={["/card1 (1).jpeg", "/card1 (2).jpeg", "/kids-play-area.jpeg"]} 
+                title="Pre-Primary Section Students" 
+                aspectClassName="aspect-[3/2]"
+              />
               <div className="absolute -top-10 -right-10 w-full h-full border-2 border-school-gold/20 rounded-2xl -z-10 translate-x-4 translate-y-4" />
 
               {/* Floating Badge */}
@@ -266,8 +286,9 @@ export function Academics() {
             {/* Image side */}
             <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-right-12 duration-1000">
               <FloatingCarousel 
-                images={["/card1 (1).jpeg", "/card1 (2).jpeg", "/classroom-activity.jpeg"]} 
+                images={["/card1 (1).jpeg", "/card1 (2).jpeg", "/Green_Beginnings.jpeg"]} 
                 title="Primary Section Students" 
+                aspectClassName="aspect-[3/2]"
               />
               <div className="absolute -bottom-10 -left-10 w-full h-full border-2 border-school-green/10 rounded-2xl -z-10 translate-x-4 translate-y-4" />
 
@@ -290,6 +311,7 @@ export function Academics() {
               <FloatingCarousel 
                 images={["/card1 (3).jpeg", "/card1 (4).jpeg", "/classroom-students.jpeg"]} 
                 title="Middle Section Students" 
+                aspectClassName="aspect-[16/9]"
               />
               <div className="absolute -top-10 -right-10 w-full h-full border-2 border-school-gold/20 rounded-2xl -z-10 translate-x-4 translate-y-4" />
 
@@ -359,7 +381,7 @@ export function Academics() {
             {[
               { src: "/School_Band.jpeg", label: "Music & Band" },
               { src: "/martial-arts-performance.jpeg", label: "Self Defense" },
-              { src: "/sports-activity.jpeg", label: "Sports Complex" },
+              { src: "/yoga-performance.jpeg", label: "Sports Complex" },
               { src: "/Green_Beginnings.jpeg", label: "Science Garden" },
               { src: "/kids-play-area.jpeg", label: "Indoor Play Area" },
               { src: "/cultural-dance-performance.jpeg", label: "Cultural Hall" },

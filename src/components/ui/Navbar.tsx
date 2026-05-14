@@ -12,8 +12,8 @@ import { motion, AnimatePresence } from "framer-motion"
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { 
-    label: "Beyond Academics", 
+  {
+    label: "Beyond Academics",
     href: "/beyond-academics",
     subLinks: [
       { label: "Performing Arts (Music/Dance)", href: "/beyond-academics#performing-arts" },
@@ -23,8 +23,8 @@ const navLinks = [
       { label: "Experiential Learning", href: "/beyond-academics#experiential" },
     ]
   },
-  { 
-    label: "Academics", 
+  {
+    label: "Academics",
     href: "/academics",
     subLinks: [
       { label: "Pre-Primary (Nur-KG)", href: "/academics#pre-primary" },
@@ -33,8 +33,8 @@ const navLinks = [
       { label: "Infrastructure", href: "/academics#infrastructure" },
     ]
   },
-  { 
-    label: "Information Hub", 
+  {
+    label: "Information Hub",
     href: "/information-hub",
     subLinks: [
       { label: "Rules & Regulations", href: "/information-hub#rules" },
@@ -43,6 +43,18 @@ const navLinks = [
       { label: "ASR Fellowship Award", href: "/information-hub#asr" },
       { label: "SLFRC Committee", href: "/information-hub#slfrc" },
       { label: "Student Council", href: "/information-hub#council" },
+      { label: "Holiday List", href: "/holidays" },
+    ]
+  },
+  {
+    label: "Admissions",
+    href: "/admissions",
+    subLinks: [
+      { label: "Admission Process", href: "/admissions#process" },
+      { label: "Eligibility Criteria", href: "/admissions#eligibility" },
+      { label: "Required Documents", href: "/admissions#documents" },
+      { label: "Online Inquiry", href: "/admissions#inquiry" },
+      { label: "FAQ", href: "/admissions#faq" },
     ]
   },
   { label: "Contact", href: "/contact" },
@@ -128,7 +140,7 @@ export function Navbar() {
           <div className="flex flex-col">
             <span
               className={cn(
-                "font-bold text-base md:text-lg leading-tight transition-colors duration-300",
+                "font-bold text-sm md:text-base leading-tight transition-colors duration-300 font-beware",
                 scrolled ? "text-[var(--school-green-dark)]" : "text-white"
               )}
             >
@@ -136,7 +148,7 @@ export function Navbar() {
             </span>
             <span
               className={cn(
-                "text-[10px] md:text-xs font-medium tracking-wide transition-colors duration-300",
+                "text-[10px] md:text-[12px] font-medium tracking-wide transition-colors duration-300",
                 scrolled
                   ? "text-[var(--school-gold-dark)]"
                   : "text-[var(--school-gold)]"
@@ -151,7 +163,7 @@ export function Navbar() {
         <div className="hidden lg:flex items-center gap-1 bg-black/5 rounded-full p-1 backdrop-blur-sm border border-white/10">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.subLinks && pathname.startsWith(link.href))
-            
+
             if (link.subLinks) {
               return (
                 <div key={link.href} className="relative group/dropdown">
@@ -169,7 +181,7 @@ export function Navbar() {
                     <span className="relative z-10">{link.label}</span>
                     <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
                   </Link>
-                  
+
                   {/* Dropdown Menu */}
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover/dropdown:opacity-100 group-hover/dropdown:translate-y-0 group-hover/dropdown:pointer-events-auto transition-all duration-300 z-[120]">
                     <div className="bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 min-w-[220px]">
@@ -226,7 +238,7 @@ export function Navbar() {
               color: "var(--school-green-dark)",
             }}
           >
-            <Link href="/contact" className="flex items-center gap-2">
+            <Link href="/admissions" className="flex items-center gap-2">
               <GraduationCap className="h-4 w-4" />
               Apply Now
             </Link>
@@ -280,7 +292,7 @@ export function Navbar() {
                 <p className="text-[10px]  uppercase tracking-[0.4em] text-white/30 mb-4 px-4">Menu</p>
                 {navLinks.map((link, i) => {
                   const isActive = pathname === link.href || (link.subLinks && pathname.startsWith(link.href))
-                  
+
                   if (link.subLinks) {
                     return (
                       <motion.div
@@ -304,7 +316,7 @@ export function Navbar() {
                             {link.label}
                             <ChevronDown className={cn("h-5 w-5 transition-transform", isActive ? "rotate-180" : "")} />
                           </Link>
-                          
+
                           <div className="grid grid-cols-1 gap-1 ml-4 border-l border-white/10 pl-4 mt-2 mb-4">
                             {link.subLinks.map((sub) => (
                               <Link
@@ -353,7 +365,7 @@ export function Navbar() {
 
               <div className="mt-12 pt-8 border-t border-white/10">
                 <Button asChild className="w-full h-12 rounded-md text-md f bg-white text-[#0d2d23] hover:bg-white/90 shadow-xl">
-                  <Link href="/contact" className="flex items-center justify-center gap-2">
+                  <Link href="/admissions" className="flex items-center justify-center gap-2">
                     <GraduationCap className="h-5 w-5" />
                     Apply for Admission
                   </Link>

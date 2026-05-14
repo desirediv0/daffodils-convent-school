@@ -27,7 +27,7 @@ const activityCategories = [
     icon: Trophy,
     color: "var(--school-gold-dark)",
     bgColor: "var(--school-gold-light)",
-    images: ["/sports-activity.jpeg", "/school-trip-jeep.jpeg", "/martial-arts-performance.jpeg", "/sports-activity.webp"],
+    images: ["/martial-arts-performance.jpeg", "/school-trip-jeep.jpeg", "/yoga-performance.jpeg"],
     description: "Sports activities foster physical fitness, teamwork, and leadership. Through structured training and healthy competition, learners develop endurance and a strong spirit of sportsmanship.",
     activities: ["Cricket", "Football", "Badminton", "Table Tennis", "Athletics", "Basketball", "Leadership Training", "Team Building"],
   },
@@ -57,7 +57,7 @@ const activityCategories = [
     icon: BookOpen,
     color: "var(--school-green)",
     bgColor: "var(--school-green-light)",
-    images: ["/nature-visit.jpeg", "/Green_Beginnings.jpeg", "/classroom-activity.jpeg", "/Festive_Duo.jpeg"],
+    images: ["/nature-visit.jpeg", "/Green_Beginnings.jpeg", "/Festive_Duo.jpeg", "/school-hero.jpeg"],
     description: "Learning by doing is at the heart of our educational philosophy. We engage students in hands-on projects and field trips to make learning meaningful and memorable.",
     activities: ["Nature Visits", "Science Projects", "Field Trips", "Hands-on Workshops", "Community Service", "Role-Playing"],
   },
@@ -73,9 +73,9 @@ const galleryImages = [
   { src: "/school-trip-jeep.jpeg", alt: "School trip excursion" },
   { src: "/kids-play-area.jpeg", alt: "Kids in play area" },
   { src: "/Green_Beginnings.jpeg", alt: "Gardening activity" },
-  { src: "/classroom-activity.jpeg", alt: "Classroom group work" },
+  { src: "/martial-arts-performance.jpeg", alt: "Students in martial arts" },
   { src: "/classroom-students.jpeg", alt: "Students in class" },
-  { src: "/sports-activity.jpeg", alt: "Indoor sports activity" },
+  { src: "/yoga-performance.jpeg", alt: "Students doing yoga" },
 ]
 
 function CategoryCarousel({ images, title }: { images: string[], title: string }) {
@@ -127,6 +127,30 @@ function CategoryCarousel({ images, title }: { images: string[], title: string }
 }
 
 export function BeyondAcademics() {
+  useEffect(() => {
+    // Handle hash navigation on initial load or hash change
+    const handleHash = () => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          setTimeout(() => {
+            const offset = 100;
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = element.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+            window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+          }, 100);
+        }
+      }
+    };
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white">
       <PageHero
@@ -155,7 +179,7 @@ export function BeyondAcademics() {
               Through Diverse Programs
             </h2>
             <p className="text-slate-600 text-xl leading-relaxed font-medium">
-              At Daffodils Convent School, we believe education extends far beyond the classroom. Our diverse extra-curricular programs are designed to discover and develop each student&apos;s unique talents.
+              At <span className="font-beware font-black">Daffodils Convent School</span>, we believe education extends far beyond the classroom. Our diverse extra-curricular programs are designed to discover and develop each student&apos;s unique talents.
             </p>
           </div>
 

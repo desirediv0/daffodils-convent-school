@@ -46,7 +46,7 @@ export function Footer() {
                 />
               </div>
               <div>
-                <h2 className="font-black text-xl tracking-tight leading-tight uppercase">
+                <h2 className="font-black text-xl tracking-tight leading-tight uppercase font-beware">
                   Daffodils <span className="text-[var(--school-gold)]">Convent School</span>
                 </h2>
                 <p className="text-[var(--school-gold)] text-[10px] font-bold uppercase tracking-[0.4em] mt-1 opacity-70">
@@ -172,7 +172,7 @@ export function Footer() {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-white/40 font-medium">
-            © {new Date().getFullYear()} <span className="text-white/60 font-black">DAFFODILS CONVENT SCHOOL</span>. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} <span className="text-white/60 font-black font-beware">DAFFODILS CONVENT SCHOOL</span>. ALL RIGHTS RESERVED.
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-[10px] uppercase font-black tracking-widest text-white/30 hover:text-[var(--school-gold)] transition-colors">Privacy Policy</Link>

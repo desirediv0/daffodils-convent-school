@@ -14,8 +14,8 @@ import { motion, AnimatePresence } from "framer-motion"
 const heroCarouselImages = [
   "/classroom-students.jpeg",
   "/Festive_Duo.jpeg",
-  "/sports-activity.jpeg",
   "/martial-arts-performance.jpeg",
+  "/school-trip-jeep.jpeg",
   "/yoga-performance.jpeg",
 ]
 
@@ -25,6 +25,7 @@ const heroCarouselImages = [
 function useCounters(targets: number[], duration = 2000, start = false) {
   const [counts, setCounts] = useState<number[]>(() => targets.map(() => 0))
 
+  const targetsString = targets.join(",")
   useEffect(() => {
     if (!start) return
     let startTime: number | null = null
@@ -36,7 +37,7 @@ function useCounters(targets: number[], duration = 2000, start = false) {
       if (progress < 1) requestAnimationFrame(animate)
     }
     requestAnimationFrame(animate)
-  }, [start, duration, targets.join(",")])
+  }, [start, duration, targetsString, targets])
 
   return counts
 }
@@ -164,7 +165,7 @@ export function Home() {
               <div className="flex items-start gap-4 mb-8 animate-in fade-in slide-in-from-left-16 duration-700 delay-200">
                 <div className="h-12 w-1 bg-school-gold rounded-full" style={{ backgroundColor: "var(--school-gold)" }}></div>
                 <div>
-                  <p className="text-xl md:text-2xl text-school-gold/90 font-serif italic mb-2" style={{ color: "var(--school-gold)" }}>
+                  <p className="text-xl md:text-2xl text-school-gold/90 font-beware italic mb-2" style={{ color: "var(--school-gold)" }}>
                     &quot;Nurturing Minds, Shaping Futures&quot;
                   </p>
                   <p className="text-base md:text-lg text-white/70 max-w-xl leading-relaxed">
@@ -185,7 +186,7 @@ export function Home() {
                     color: "var(--school-green-dark)",
                   }}
                 >
-                  <Link href="/contact">
+                  <Link href="/admissions">
                     Apply Now
                     <ArrowRight className="h-5 w-5" />
                   </Link>
@@ -228,9 +229,9 @@ export function Home() {
                       initial={{ x: "20%", opacity: 0, scale: 1.1 }}
                       animate={{ x: 0, opacity: 1, scale: 1 }}
                       exit={{ x: "-20%", opacity: 0, scale: 0.9 }}
-                      transition={{ 
-                        duration: 1.2, 
-                        ease: [0.22, 1, 0.36, 1] 
+                      transition={{
+                        duration: 1.2,
+                        ease: [0.22, 1, 0.36, 1]
                       }}
                       className="absolute inset-0"
                     >
@@ -295,13 +296,13 @@ export function Home() {
 
             {/* Ticker Content */}
             <div className="flex-1 w-full overflow-hidden relative h-10 flex items-center bg-slate-50 rounded-2xl px-6 border border-slate-100">
-              <motion.div 
+              <motion.div
                 className="whitespace-nowrap flex gap-12"
                 animate={{ x: [0, -1000] }}
-                transition={{ 
-                  duration: 30, 
-                  repeat: Infinity, 
-                  ease: "linear" 
+                transition={{
+                  duration: 30,
+                  repeat: Infinity,
+                  ease: "linear"
                 }}
               >
                 {[
@@ -318,7 +319,7 @@ export function Home() {
                   </div>
                 ))}
               </motion.div>
-              
+
               {/* Fade gradients */}
               <div className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-slate-50 to-transparent z-10" />
               <div className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-slate-50 to-transparent z-10" />
@@ -389,7 +390,7 @@ export function Home() {
 
               <div className="space-y-6 text-slate-600 leading-relaxed text-lg">
                 <p>
-                  Daffodils Convent School, located at 114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008, is more than just an institution—it&apos;s a nurturing space where education blends with
+                  <span className="font-beware font-black">Daffodils Convent School</span>, located at 114, Street No. 12, Chetan Basti, Block J, Nehru Nagar, Anand Parbat, New Delhi, Delhi, 110008, is more than just an institution—it&apos;s a nurturing space where education blends with
                   values, creativity, and discipline.
                 </p>
                 <p>
@@ -413,10 +414,9 @@ export function Home() {
               <Button
                 asChild
                 size="lg"
-                className="h-14 px-10 rounded-xl gap-3 font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+                className="h-14 px-10 rounded-xl gap-3 font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 text-white"
                 style={{
                   backgroundColor: "var(--school-green)",
-                  color: "white",
                 }}
               >
                 <Link href="/about">
@@ -580,6 +580,46 @@ export function Home() {
         </div>
       </section>
 
+      {/* ─── ADMISSIONS CTA ───────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-school-green-dark relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm66-3c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-46-45c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm26 18c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm16 18c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM9 56c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm73 28c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM27 28c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm14 48c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM28 6c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zm60 44c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E\")" }} />
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="bg-white/5 border border-white/10 rounded-[3rem] p-8 md:p-16 text-center backdrop-blur-xl">
+            <Badge className="mb-6 px-4 py-1.5 bg-school-gold text-school-green-dark font-black tracking-widest uppercase border-none">
+              Now Enrolling
+            </Badge>
+            <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
+              Admissions Open for <br />
+              <span className="text-school-gold">Session 2026–27</span>
+            </h2>
+            <p className="text-white/70 text-xl font-medium mb-12 max-w-3xl mx-auto leading-relaxed">
+              Give your child the opportunity to learn, grow, and succeed in a caring environment
+              focused on academic excellence and character building.
+            </p>
+            <div className="flex flex-wrap justify-center gap-6">
+              <Button asChild size="lg" className="h-16 px-12 rounded-2xl font-black text-lg bg-school-gold text-school-green-dark hover:scale-105 transition-all shadow-2xl">
+                <Link href="/admissions">Apply Now</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-16 px-12 rounded-2xl font-black text-lg border-2 border-white/20 text-white bg-transparent hover:bg-white hover:text-school-green-dark transition-all">
+                <Link href="/admissions#inquiry">Admission Inquiry</Link>
+              </Button>
+            </div>
+            <div className="mt-12 flex items-center justify-center gap-8 border-t border-white/10 pt-12">
+              <div className="text-center">
+                <p className="text-school-gold font-black text-2xl">Nursery - VIII</p>
+                <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">Available Classes</p>
+              </div>
+              <div className="h-10 w-[1px] bg-white/10" />
+              <div className="text-center">
+                <p className="text-school-gold font-black text-2xl">Delhi Campus</p>
+                <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">Location</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── GALLERY ──────────────────────────────────────── */}
       <section className="py-12 md:py-14 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
@@ -594,7 +634,7 @@ export function Home() {
               VISUAL JOURNEY
             </Badge>
             <h2 className="text-4xl md:text-5xl font-black text-school-green-dark mb-6">
-              Vibrant Life at <span className="text-school-green" style={{ color: "var(--school-green)" }}>Daffodils</span>
+              Vibrant Life at <span className="text-school-green font-beware" style={{ color: "var(--school-green)" }}>Daffodils</span>
             </h2>
             <p className="text-slate-500 max-w-xl mx-auto text-lg leading-relaxed">
               Experience the joy, creativity, and energy that defines our school community through these captured moments.
@@ -616,7 +656,7 @@ export function Home() {
                   height={1200}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/80 via-school-green-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 translate-y-4 group-hover:translate-y-0">
-                  <span className="text-school-gold font-bold text-xs uppercase tracking-widest mb-1">Daffodils Life</span>
+                  <span className="text-school-gold font-bold text-xs uppercase tracking-widest mb-1 font-beware">Daffodils Life</span>
                   <span className="text-white text-lg font-black">{img.alt}</span>
                 </div>
               </div>
@@ -664,7 +704,7 @@ export function Home() {
                 name: "Mrs. Priya Sharma",
                 role: "Parent of Class V Student",
                 quote:
-                  "Daffodils has transformed my child's approach to learning. The teachers are caring, and the curriculum is excellent. My son looks forward to school every day!",
+                  "\"<span className=\"font-beware font-black\">Daffodils</span> has transformed my child's approach to learning. The teachers are caring, and the curriculum is excellent. My son looks forward to school every day!\"",
               },
               {
                 name: "Mr. Rajesh Kumar",

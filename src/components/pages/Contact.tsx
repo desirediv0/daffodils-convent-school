@@ -50,13 +50,23 @@ const subjectOptions = ["Admission Enquiry", "Fee Related", "Academic Concerns",
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({ name: "", phone: "", classFor: "", section: "", subject: "", message: "" })
+  const [form, setForm] = useState({ name: "", phone: "", email: "", classFor: "", section: "", subject: "", message: "" })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 5000)
-    setForm({ name: "", phone: "", classFor: "", section: "", subject: "", message: "" })
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      })
+      if (response.ok) {
+        setSubmitted(true)
+        setForm({ name: "", phone: "", email: "", classFor: "", section: "", subject: "", message: "" })
+      }
+    } catch (error) {
+      console.error("Submission error:", error)
+    }
   }
 
   return (
@@ -206,6 +216,10 @@ export function Contact() {
                         <div className="space-y-3">
                           <Label htmlFor="phone" className="text-xs font-black uppercase tracking-widest text-school-green-dark/60 ml-1">Phone Number *</Label>
                           <Input id="phone" type="tel" placeholder="+91 XXXXX XXXXX" required className="h-14 rounded-xl border-slate-200 focus:border-school-green focus:ring-school-green-light font-bold" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+                        </div>
+                        <div className="space-y-3">
+                          <Label htmlFor="email" className="text-xs font-black uppercase tracking-widest text-school-green-dark/60 ml-1">Email Address *</Label>
+                          <Input id="email" type="email" placeholder="example@mail.com" required className="h-14 rounded-xl border-slate-200 focus:border-school-green focus:ring-school-green-light font-bold" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
                         </div>
                       </div>
 

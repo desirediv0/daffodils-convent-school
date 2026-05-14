@@ -7,6 +7,7 @@ import { PageHero } from "@/components/ui/PageHero"
 import { Button } from "../ui/button"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
+import Link from "next/link"
 
 const navItems = [
   { id: "rules", label: "Rules & Regulations", icon: ScrollText },
@@ -37,7 +38,23 @@ export function InformationHub() {
     }
 
     window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    
+    // Handle hash navigation on initial load or hash change
+    const handleHash = () => {
+      if (window.location.hash) {
+        const id = window.location.hash.substring(1);
+        // Small delay to ensure the DOM is ready and any initial animations are done
+        setTimeout(() => scrollToSection(id), 100);
+      }
+    };
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("hashchange", handleHash);
+    }
   }, [])
 
   const scrollToSection = (id: string) => {
@@ -205,17 +222,22 @@ export function InformationHub() {
                 </div>
 
                 <div className="mt-10">
-                  <Card className="p-8 border-dashed border-2 border-slate-200 bg-white rounded-3xl flex items-center justify-between gap-6">
-                    <div className="flex items-center gap-5">
-                      <div className="h-12 w-12 rounded-xl bg-slate-100 flex items-center justify-center">
-                        <Calendar className="h-6 w-6 text-slate-400" />
+                  <Link href="/holidays" className="block outline-none">
+                    <Card className="p-8 border-dashed border-2 border-slate-200 bg-white rounded-3xl flex items-center justify-between gap-6 hover:border-school-gold/50 hover:shadow-2xl transition-all group cursor-pointer">
+                      <div className="flex items-center gap-5">
+                        <div className="h-14 w-14 rounded-2xl bg-slate-50 flex items-center justify-center group-hover:bg-school-gold/10 transition-colors">
+                          <Calendar className="h-7 w-7 text-slate-400 group-hover:text-school-gold-dark transition-colors" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-black text-school-green-dark">School Holidays</h4>
+                          <p className="text-slate-500 font-bold text-sm group-hover:text-school-gold-dark transition-colors">View Academic Calendar 2026-27</p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="text-lg font-black text-school-green-dark">School Holidays</h4>
-                        <p className="text-slate-500 font-bold text-sm">(LIST OF HOLIDAYS WILL BE PROVIDED)</p>
+                      <div className="h-10 w-10 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-school-gold group-hover:text-white transition-all group-hover:translate-x-2">
+                        <ArrowRight className="h-5 w-5" />
                       </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </Link>
                 </div>
               </div>
 
@@ -275,9 +297,9 @@ export function InformationHub() {
                     </div>
                   </div>
 
-                  <div className="xl:col-span-5">
+                  <div className="xl:col-span-5 flex flex-col gap-6">
                     <div
-                      className="p-12 rounded-3xl shadow-2xl relative overflow-hidden h-full"
+                      className="p-12 rounded-3xl shadow-2xl relative overflow-hidden flex-1"
                       style={{ backgroundColor: colors.greenDark }}
                     >
                       <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -285,7 +307,7 @@ export function InformationHub() {
                         <FileText className="h-6 w-6 text-school-gold" />
                         Required Documents
                       </h3>
-                      <ul className="space-y-6">
+                      <ul className="space-y-6 mb-10">
                         {[
                           "Completed Registration Form",
                           "Original Birth Certificate",
@@ -300,9 +322,12 @@ export function InformationHub() {
                           </li>
                         ))}
                       </ul>
-                      <div className="mt-12 pt-10 border-t border-white/10">
-                        <Button className="w-full h-14 rounded-xl bg-white text-school-green-dark font-black text-lg shadow-xl hover:scale-105 transition-all">
-                          Enquire for Admission
+                      <div className="flex flex-col gap-4 mt-auto">
+                        <Button asChild className="w-full h-14 rounded-2xl font-black text-lg bg-school-gold text-school-green-dark hover:scale-[1.02] transition-all shadow-xl">
+                          <Link href="/admissions">Apply for Admission</Link>
+                        </Button>
+                        <Button asChild variant="outline" className="w-full h-14 rounded-2xl font-black text-lg border-white/20 text-white hover:bg-white/10 transition-all">
+                          <Link href="/admissions#inquiry">Online Inquiry</Link>
                         </Button>
                       </div>
                     </div>
@@ -415,13 +440,13 @@ export function InformationHub() {
                         <div className="md:col-span-9 px-4">
                           <div className="flex flex-wrap gap-2">
                             {item.events.map((e, idx) => (
-                              <Badge 
-                                key={idx} 
-                                variant="outline" 
+                              <Badge
+                                key={idx}
+                                variant="outline"
                                 className={cn(
                                   "px-3 py-1 font-bold text-xs border-2",
-                                  e.includes("BREAK") 
-                                    ? "bg-school-gold/10 border-school-gold text-school-green-dark" 
+                                  e.includes("BREAK")
+                                    ? "bg-school-gold/10 border-school-gold text-school-green-dark"
                                     : "bg-white border-slate-200 text-slate-600"
                                 )}
                               >
@@ -494,13 +519,17 @@ export function InformationHub() {
                   </div>
                 </div>
                 <div className="bg-slate-50 rounded-3xl p-10 flex flex-col sm:flex-row gap-6 items-center border border-slate-100">
-                  <Button variant="outline" size="lg" className="h-16 px-10 rounded-2xl gap-3 font-black text-lg border-slate-200 text-school-green-dark hover:bg-[#0d2d23] hover:text-white transition-all shadow-sm">
-                    <FileText className="h-6 w-6" />
-                    Document 1
+                  <Button asChild variant="outline" size="lg" className="h-16 px-10 rounded-2xl gap-3 font-black text-lg border-slate-200 text-school-green-dark hover:bg-[#0d2d23] hover:text-white transition-all shadow-sm">
+                    <Link href="/information-hub#slfrc">
+                      <FileText className="h-6 w-6" />
+                      Document 1
+                    </Link>
                   </Button>
-                  <Button variant="outline" size="lg" className="h-16 px-10 rounded-2xl gap-3 font-black text-lg border-slate-200 text-school-green-dark hover:bg-[#0d2d23] hover:text-white transition-all shadow-sm">
-                    <FileText className="h-6 w-6" />
-                    Document 2
+                  <Button asChild variant="outline" size="lg" className="h-16 px-10 rounded-2xl gap-3 font-black text-lg border-slate-200 text-school-green-dark hover:bg-[#0d2d23] hover:text-white transition-all shadow-sm">
+                    <Link href="/information-hub#slfrc">
+                      <FileText className="h-6 w-6" />
+                      Document 2
+                    </Link>
                   </Button>
                 </div>
               </div>
@@ -527,23 +556,59 @@ export function InformationHub() {
                     A service-cum-training organization with four houses named after mountain ranges, representing significant elevation and the journey of self-conquest.
                   </p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 mb-12">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                     {[
-                      { n: "Aravali", c: "Red", s: "text-red-600", bg: "bg-red-50", hoverShadow: "hover:shadow-red-200" },
-                      { n: "Shivalik", c: "Yellow", s: "text-amber-500", bg: "bg-amber-50", hoverShadow: "hover:shadow-amber-200" },
-                      { n: "Himalaya", c: "Blue", s: "text-blue-600", bg: "bg-blue-50", hoverShadow: "hover:shadow-blue-200" },
-                      { n: "Nilgiri", c: "Green", s: "text-green-600", bg: "bg-green-50", hoverShadow: "hover:shadow-green-200" }
+                      {
+                        n: "Aravali",
+                        c: "Red",
+                        s: "text-red-600",
+                        bg: "bg-red-50",
+                        hoverShadow: "hover:shadow-red-200",
+                        motto: "From the ancient rock, we rise in might, Aravali forces, fierce in the fight! With hearts of fire and strength of steel, We never bow, we never kneel!"
+                      },
+                      {
+                        n: "Shivalik",
+                        c: "Yellow",
+                        s: "text-amber-500",
+                        bg: "bg-amber-50",
+                        hoverShadow: "hover:shadow-amber-200",
+                        motto: "Like the golden dawn, we break the night, Shivalik riders, bold and bright! With rising power and steps so true, We claim the day, outshining you!"
+                      },
+                      {
+                        n: "Himalaya",
+                        c: "Blue",
+                        s: "text-blue-600",
+                        bg: "bg-blue-50",
+                        hoverShadow: "hover:shadow-blue-200",
+                        motto: "To the highest peak, our spirits soar, Hear the mighty Himalaya roar! Above the clouds, we touch the sky, Champions born, we fly so high!"
+                      },
+                      {
+                        n: "Nilgiri",
+                        c: "Green",
+                        s: "text-green-600",
+                        bg: "bg-green-50",
+                        hoverShadow: "hover:shadow-green-200",
+                        motto: "Evergreen power, wild and free, Nilgiri rules from peak to sea! With steady growth and bonds so strong, Victory is where we belong!"
+                      }
                     ].map((h) => (
                       <div
                         key={h.n}
                         className={cn(
-                          "p-8 rounded-[2rem] text-center shadow-sm border border-transparent hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-default",
+                          "p-10 rounded-[2.5rem] shadow-sm border border-transparent hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-default relative overflow-hidden",
                           h.bg,
                           h.hoverShadow
                         )}
                       >
-                        <h4 className="text-2xl font-black text-slate-800 mb-1">{h.n}</h4>
-                        <p className={cn("font-black text-xs uppercase tracking-widest", h.s)}>{h.c} House</p>
+                        <div className="flex justify-between items-start mb-6">
+                          <div>
+                            <h4 className="text-3xl font-black text-slate-800 mb-1">{h.n}</h4>
+                            <p className={cn("font-black text-xs uppercase tracking-[0.2em]", h.s)}>{h.c} House</p>
+                          </div>
+                          <div className={cn("h-12 w-12 rounded-2xl opacity-20", h.bg.replace("bg-", "bg-"))} style={{ backgroundColor: h.s.replace("text-", "").replace("-600", "").replace("-500", "") }} />
+                        </div>
+                        <p className="text-slate-600 font-bold italic leading-relaxed text-lg">
+                          &quot;{h.motto}&quot;
+                        </p>
                       </div>
                     ))}
                   </div>

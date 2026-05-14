@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Beware';
+  src: url('/fonts/BEWARE.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  .font-beware {
+    font-family: 'Beware', sans-serif !important;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -105,7 +119,7 @@
   }
 
   html {
-    font-family: Georgia, serif;
+    font-family: var(--font-geist-sans), system-ui, sans-serif;
     scroll-behavior: smooth;
   }
 
