@@ -85,7 +85,7 @@ export function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentHeroImage((prev) => (prev + 1) % heroCarouselImages.length)
-    }, 3000)
+    }, 4000)
     return () => clearInterval(timer)
   }, [])
 
@@ -222,16 +222,16 @@ export function Home() {
                 <div className="absolute -top-6 -left-6 w-full h-full border-2 border-school-gold/30 rounded-3xl -z-10 animate-float"></div>
                 <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-school-green/30 rounded-3xl -z-10 animate-float [animation-delay:1.5s]"></div>
 
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10">
-                  <AnimatePresence mode="wait">
+                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-slate-900">
+                  <AnimatePresence initial={false}>
                     <motion.div
                       key={currentHeroImage}
-                      initial={{ x: "20%", opacity: 0, scale: 1.1 }}
-                      animate={{ x: 0, opacity: 1, scale: 1 }}
-                      exit={{ x: "-20%", opacity: 0, scale: 0.9 }}
+                      initial={{ opacity: 0, scale: 1.1 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0 }}
                       transition={{
-                        duration: 1.2,
-                        ease: [0.22, 1, 0.36, 1]
+                        duration: 1.5,
+                        ease: "easeInOut"
                       }}
                       className="absolute inset-0"
                     >
