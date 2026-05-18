@@ -55,7 +55,7 @@ export function About() {
             {/* Text side */}
             <div className="animate-in fade-in slide-in-from-right-12 duration-1000">
               <Badge
-                className="mb-6 px-4 py-1.5 text-xs font-bold tracking-[0.2em] uppercase border-none font-beware"
+                className="mb-6 px-4 py-1.5 text-xs font-bold tracking-[0.2em] uppercase border-none"
                 style={{
                   backgroundColor: "var(--school-green-light)",
                   color: "var(--school-green-dark)",

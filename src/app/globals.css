@@ -125,11 +125,7 @@
     scroll-behavior: smooth;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Beware', system-ui, sans-serif !important;
-    font-weight: normal !important;
-    letter-spacing: -0.05em !important;
-  }
+
 
   /* Custom Animations */
   @keyframes fade-in {

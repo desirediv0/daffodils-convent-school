@@ -220,7 +220,7 @@ export function Admissions() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-7 animate-in fade-in slide-in-from-left-12 duration-1000">
               <Badge
-                className="mb-6 px-4 py-1.5 text-xs font-bold tracking-widest uppercase border-none font-beware"
+                className="mb-6 px-4 py-1.5 text-xs font-bold tracking-widest uppercase border-none"
                 style={{ backgroundColor: "var(--school-green-light)", color: "var(--school-green-dark)" }}
               >
                 WELCOME TO DAFFODILS

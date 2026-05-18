@@ -309,7 +309,7 @@ export function Academics() {
             {/* Image side */}
             <div className="lg:col-span-5 lg:order-1 relative group animate-in fade-in slide-in-from-left-12 duration-1000">
               <FloatingCarousel
-                images={["/card1 (3).jpeg", "/card1 (4).jpeg", "/classroom-students.jpeg"]}
+                images={["/card1 (4).jpeg", "/classroom-students.jpeg"]}
                 title="Middle Section Students"
                 aspectClassName="aspect-[16/9]"
               />

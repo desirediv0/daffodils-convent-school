@@ -178,7 +178,7 @@ export function Home() {
               <div className="flex items-start gap-4 mb-8 animate-in fade-in slide-in-from-left-16 duration-700 delay-200">
                 <div className="h-12 w-1 bg-school-gold rounded-full" style={{ backgroundColor: "var(--school-gold)" }}></div>
                 <div>
-                  <p className="text-xl md:text-2xl text-school-gold/90 font-beware  mb-2" style={{ color: "var(--school-gold)" }}>
+                  <p className="text-xl md:text-2xl text-school-gold/90 mb-2 font-bold tracking-tight" style={{ color: "var(--school-gold)" }}>
                     &quot;Nurturing Minds, Shaping Futures&quot;
                   </p>
                   <p className="text-base md:text-lg text-white/70 max-w-xl leading-relaxed">
