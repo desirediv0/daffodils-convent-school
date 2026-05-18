@@ -38,7 +38,7 @@ const navLinks = [
     href: "/information-hub",
     subLinks: [
       { label: "Rules & Regulations", href: "/information-hub#rules" },
-      { label: "Admissions", href: "/information-hub#admissions" },
+      // { label: "Admissions", href: "/information-hub#admissions" },
       { label: "Parents / Guardians", href: "/information-hub#parents" },
       { label: "ASR Fellowship Award", href: "/information-hub#asr" },
       { label: "SLFRC Committee", href: "/information-hub#slfrc" },
@@ -97,7 +97,7 @@ export function Navbar() {
       {/* Top bar - only desktop and when NOT scrolled for a cleaner look */}
       <div
         className={cn(
-          "hidden lg:block overflow-hidden transition-all duration-500",
+          "hidden xl:block overflow-hidden transition-all duration-500",
           scrolled ? "max-h-0 opacity-0 mb-0" : "max-h-10 opacity-100 mb-4"
         )}
       >
@@ -140,11 +140,11 @@ export function Navbar() {
           <div className="flex flex-col">
             <span
               className={cn(
-                "font-bold text-sm md:text-base leading-tight transition-colors duration-300 font-beware",
+                "font-bold text-[12px] leading-normal transition-colors duration-300 font-beware whitespace-nowrap",
                 scrolled ? "text-[var(--school-green-dark)]" : "text-white"
               )}
             >
-              Daffodils <span className="hidden xs:inline">Convent School</span>
+              Daffodils <span className="hidden xl:inline">Convent School</span>
             </span>
             <span
               className={cn(
@@ -160,7 +160,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-1 bg-black/5 rounded-full p-1 backdrop-blur-sm border border-white/10">
+        <div className="hidden xl:flex items-center gap-1 bg-black/5 rounded-full p-1 backdrop-blur-sm border border-white/10">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.subLinks && pathname.startsWith(link.href))
 
@@ -170,7 +170,7 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-1.5 group/btn",
+                      "px-3 py-2 rounded-full text-xs xl:text-sm font-semibold transition-all duration-300 flex items-center gap-1 group/btn whitespace-nowrap",
                       isActive
                         ? "text-white bg-[var(--school-green)] shadow-md"
                         : scrolled
@@ -179,7 +179,7 @@ export function Navbar() {
                     )}
                   >
                     <span className="relative z-10">{link.label}</span>
-                    <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
+                    <ChevronDown className="h-3 w-3 xl:h-4 xl:w-4 transition-transform duration-300 group-hover/dropdown:rotate-180" />
                   </Link>
 
                   {/* Dropdown Menu */}
@@ -206,7 +206,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 relative overflow-hidden group",
+                  "px-3 xl:px-4 py-2 rounded-full text-xs xl:text-sm font-semibold transition-all duration-300 relative overflow-hidden group whitespace-nowrap",
                   isActive
                     ? "text-white bg-[var(--school-green)] shadow-md"
                     : scrolled
@@ -228,7 +228,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop CTA */}
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden xl:flex items-center gap-4">
           <Button
             asChild
             size="sm"
@@ -246,7 +246,7 @@ export function Navbar() {
         </div>        {/* Mobile Toggle */}
         <button
           className={cn(
-            "lg:hidden p-3 rounded-xl transition-all duration-300 relative z-[110]",
+            "xl:hidden p-3 rounded-xl transition-all duration-300 relative z-[110]",
             isOpen
               ? "opacity-0 pointer-events-none" // Hide original toggle when menu is open
               : scrolled
@@ -268,7 +268,7 @@ export function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-[120] lg:hidden flex flex-col h-[100dvh] w-full"
+            className="fixed inset-0 z-[120] xl:hidden flex flex-col h-[100dvh] w-full"
             style={{ backgroundColor: "#0d2d23" }}
           >
             {/* Close Button Inside Menu */}

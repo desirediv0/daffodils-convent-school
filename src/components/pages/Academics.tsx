@@ -90,16 +90,16 @@ function FloatingCarousel({ images, title, aspectClassName = "aspect-[4/5]" }: {
         </motion.div>
       </AnimatePresence>
       <div className="absolute inset-0 bg-school-green-dark/10 group-hover:bg-transparent transition-colors duration-500" />
-      
+
       {/* Indicator dots */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
         {images.map((_, i) => (
-          <div 
-            key={i} 
+          <div
+            key={i}
             className={cn(
               "h-1.5 rounded-full transition-all duration-300",
               i === currentIndex ? "w-6 bg-school-gold" : "w-1.5 bg-white/50"
-            )} 
+            )}
           />
         ))}
       </div>
@@ -185,9 +185,9 @@ export function Academics() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Image side */}
             <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-left-12 duration-1000">
-              <FloatingCarousel 
-                images={["/card1 (1).jpeg", "/card1 (2).jpeg", "/kids-play-area.jpeg"]} 
-                title="Pre-Primary Section Students" 
+              <FloatingCarousel
+                images={["/nursery-class.jpeg", "/card1 (1).jpeg", "/card1 (2).jpeg", "/kids-play-area.jpeg"]}
+                title="Pre-Primary Section Students"
                 aspectClassName="aspect-[3/2]"
               />
               <div className="absolute -top-10 -right-10 w-full h-full border-2 border-school-gold/20 rounded-2xl -z-10 translate-x-4 translate-y-4" />
@@ -285,9 +285,9 @@ export function Academics() {
 
             {/* Image side */}
             <div className="lg:col-span-5 relative group animate-in fade-in slide-in-from-right-12 duration-1000">
-              <FloatingCarousel 
-                images={["/card1 (1).jpeg", "/card1 (2).jpeg", "/Green_Beginnings.jpeg"]} 
-                title="Primary Section Students" 
+              <FloatingCarousel
+                images={["/Green_Beginnings.jpeg"]}
+                title="Primary Section Students"
                 aspectClassName="aspect-[3/2]"
               />
               <div className="absolute -bottom-10 -left-10 w-full h-full border-2 border-school-green/10 rounded-2xl -z-10 translate-x-4 translate-y-4" />
@@ -308,9 +308,9 @@ export function Academics() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             {/* Image side */}
             <div className="lg:col-span-5 lg:order-1 relative group animate-in fade-in slide-in-from-left-12 duration-1000">
-              <FloatingCarousel 
-                images={["/card1 (3).jpeg", "/card1 (4).jpeg", "/classroom-students.jpeg"]} 
-                title="Middle Section Students" 
+              <FloatingCarousel
+                images={["/card1 (3).jpeg", "/card1 (4).jpeg", "/classroom-students.jpeg"]}
+                title="Middle Section Students"
                 aspectClassName="aspect-[16/9]"
               />
               <div className="absolute -top-10 -right-10 w-full h-full border-2 border-school-gold/20 rounded-2xl -z-10 translate-x-4 translate-y-4" />
@@ -377,32 +377,35 @@ export function Academics() {
             <h2 className="text-4xl font-black text-school-green-dark">World-Class Infrastructure</h2>
           </div>
 
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {[
-              { src: "/School_Band.jpeg", label: "Music & Band" },
-              { src: "/martial-arts-performance.jpeg", label: "Self Defense" },
-              { src: "/yoga-performance.jpeg", label: "Sports Complex" },
-              { src: "/Green_Beginnings.jpeg", label: "Science Garden" },
-              { src: "/kids-play-area.jpeg", label: "Indoor Play Area" },
-              { src: "/cultural-dance-performance.jpeg", label: "Cultural Hall" },
-              { src: "/dance-performance-white-theme.jpeg", label: "Performing Arts" },
-              { src: "/group-dance-green.jpeg", label: "Activity Zone" },
+              { src: "/School_Band.jpeg", label: "Music & Band", position: "object-center" },
+              { src: "/martial-arts-performance.jpeg", label: "Self Defense", position: "object-center" },
+              { src: "/yoga-performance.jpeg", label: "Sports Complex", position: "object-center" },
+              { src: "/Green_Beginnings.jpeg", label: "Science Garden", position: "object-center" },
+              { src: "/kids-play-area.jpeg", label: "Indoor Play Area", position: "object-center" },
+              { src: "/cultural-dance-performance.jpeg", label: "Cultural Hall", position: "object-center" },
+              { src: "/dance-performance-white-theme.jpeg", label: "Performing Arts", position: "object-center" },
+              { src: "/group-dance-green.jpeg", label: "Activity Zone", position: "object-center" },
             ].map((f, i) => (
               <div
                 key={f.label}
-                className="relative break-inside-avoid overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000"
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <Image
                   src={f.src}
                   alt={f.label}
-                  className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
-                  width={600}
-                  height={800}
+                  className={cn(
+                    "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
+                    f.position
+                  )}
+                  fill
+                  sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/85 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 z-10">
                   <span className="text-school-gold font-bold text-xs uppercase tracking-widest mb-1">Modern Facility</span>
-                  <span className="text-white text-lg font-black">{f.label}</span>
+                  <span className="text-white text-lg font-black leading-tight">{f.label}</span>
                 </div>
               </div>
             ))}

@@ -29,15 +29,28 @@ function useCounters(targets: number[], duration = 2000, start = false) {
   useEffect(() => {
     if (!start) return
     let startTime: number | null = null
+    let animationFrameId: number
+
     const animate = (timestamp: number) => {
       if (!startTime) startTime = timestamp
       const progress = Math.min((timestamp - startTime) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      setCounts(targets.map((target) => Math.floor(eased * target)))
-      if (progress < 1) requestAnimationFrame(animate)
+
+      const parsedTargets = targetsString.split(",").map(Number)
+      setCounts(parsedTargets.map((target) => Math.floor(eased * target)))
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(animate)
+      }
     }
-    requestAnimationFrame(animate)
-  }, [start, duration, targetsString, targets])
+
+    animationFrameId = requestAnimationFrame(animate)
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId)
+      }
+    }
+  }, [start, duration, targetsString])
 
   return counts
 }
@@ -52,9 +65,9 @@ const stats = [
 const galleryImages = [
   { src: "/annual-function-dance-1.jpeg", alt: "Students performing cultural dance" },
   { src: "/annual-function-dance-2.jpeg", alt: "Group dance performance" },
-  { src: "/award-ceremony-1.jpeg", alt: "Student receiving award" },
+  { src: "/award-ceremony-1.jpeg", alt: "Student receiving award", position: "object-top" },
   { src: "/stage-performance-1.jpeg", alt: "Stage performance by students" },
-  { src: "/principal-speech.jpeg", alt: "Principal giving speech" },
+  { src: "/principal-speech.jpeg", alt: "Principal giving speech", position: "object-top" },
   { src: "/school-event-group.jpeg", alt: "Guests and staff on stage" },
   { src: "/annual-function-audience.jpeg", alt: "Audience at school event" },
   { src: "/cultural-performance-2.jpeg", alt: "Students performing on stage" },
@@ -63,8 +76,8 @@ const galleryImages = [
   { src: "/School_Band.jpeg", alt: "School marching band performance" },
   { src: "/martial-arts-performance.jpeg", alt: "Martial arts activity" },
   { src: "/nature-visit.jpeg", alt: "Students in nature visit" },
-  { src: "/Festive_Duo.jpeg", alt: "Students in festive school attire" },
-  { src: "/traditional-dress-group.jpeg", alt: "Cultural traditional dress" },
+  { src: "/Festive_Duo.jpeg", alt: "Students in festive school attire", position: "object-top" },
+  { src: "/traditional-dress-group.jpeg", alt: "Cultural traditional dress", position: "object-top" },
   { src: "/kids-play-area.jpeg", alt: "Kids in play area" },
 ];
 
@@ -156,7 +169,7 @@ export function Home() {
               </div>
 
               {/* Title */}
-              <h1 className="text-4xl sm:text-6xl  font-bold text-white leading-[1.1] mb-6 animate-in fade-in slide-in-from-left-12 duration-700 delay-100">
+              <h1 className="text-4xl sm:text-5xl  font-bold text-white leading-[1.1] mb-6 animate-in fade-in slide-in-from-left-12 duration-700 delay-100">
                 Empowering <span className="text-school-gold" style={{ color: "var(--school-gold)" }}>Young Minds</span> <br className="hidden sm:block" />
                 to Lead Tomorrow
               </h1>
@@ -165,7 +178,7 @@ export function Home() {
               <div className="flex items-start gap-4 mb-8 animate-in fade-in slide-in-from-left-16 duration-700 delay-200">
                 <div className="h-12 w-1 bg-school-gold rounded-full" style={{ backgroundColor: "var(--school-gold)" }}></div>
                 <div>
-                  <p className="text-xl md:text-2xl text-school-gold/90 font-beware italic mb-2" style={{ color: "var(--school-gold)" }}>
+                  <p className="text-xl md:text-2xl text-school-gold/90 font-beware  mb-2" style={{ color: "var(--school-gold)" }}>
                     &quot;Nurturing Minds, Shaping Futures&quot;
                   </p>
                   <p className="text-base md:text-lg text-white/70 max-w-xl leading-relaxed">
@@ -217,24 +230,24 @@ export function Home() {
 
             {/* Right Side Visual (Desktop Only) */}
             <div className="hidden lg:block lg:col-span-5 xl:col-span-4 relative animate-in fade-in zoom-in duration-1000 delay-300">
-              <div className="relative">
-                {/* Decorative frames */}
-                <div className="absolute -top-6 -left-6 w-full h-full border-2 border-school-gold/30 rounded-3xl -z-10 animate-float"></div>
-                <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-school-green/30 rounded-3xl -z-10 animate-float [animation-delay:1.5s]"></div>
+              <div className="relative aspect-[4/5] w-full">
+                <AnimatePresence initial={false}>
+                  <motion.div
+                    key={currentHeroImage}
+                    initial={{ opacity: 0, x: "100%", scale: 1.02, zIndex: 10 }}
+                    animate={{ opacity: 1, x: 0, scale: 1, zIndex: 10 }}
+                    exit={{ opacity: 0, scale: 0.9, zIndex: 0 }}
+                    transition={{
+                      duration: 1.2,
+                      ease: [0.16, 1, 0.3, 1]
+                    }}
+                    className="absolute inset-0"
+                  >
+                    {/* Decorative frames inside motion.div so they animate together with the image! */}
+                    <div className="absolute -top-6 -left-6 w-full h-full border-2 border-school-gold/30 rounded-3xl -z-10 animate-float pointer-events-none"></div>
+                    <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-school-green/30 rounded-3xl -z-10 animate-float [animation-delay:1.5s] pointer-events-none"></div>
 
-                <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 bg-slate-900">
-                  <AnimatePresence initial={false}>
-                    <motion.div
-                      key={currentHeroImage}
-                      initial={{ opacity: 0, scale: 1.1 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{
-                        duration: 1.5,
-                        ease: "easeInOut"
-                      }}
-                      className="absolute inset-0"
-                    >
+                    <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-2xl border-none">
                       <Image
                         src={heroCarouselImages[currentHeroImage]}
                         alt="Education at Daffodils"
@@ -243,23 +256,23 @@ export function Home() {
                         height={1000}
                         priority
                       />
-                    </motion.div>
-                  </AnimatePresence>
-                  <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/60 to-transparent pointer-events-none"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/60 to-transparent pointer-events-none"></div>
 
-                  {/* Floating Stats Card */}
-                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl">
-                    <div className="flex items-center gap-3">
-                      <div className="h-10 w-10 rounded-full bg-school-gold flex items-center justify-center">
-                        <Star className="h-5 w-5 text-school-green-dark fill-current" />
-                      </div>
-                      <div>
-                        <p className="text-white font-bold text-sm">Top Rated School</p>
-                        <p className="text-white/60 text-xs">Excellence in North Delhi</p>
+                      {/* Floating Stats Card inside motion.div so it stays contextually aligned */}
+                      <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-2xl">
+                        <div className="flex items-center gap-3">
+                          <div className="h-10 w-10 rounded-full bg-school-gold flex items-center justify-center">
+                            <Star className="h-5 w-5 text-school-green-dark fill-current" />
+                          </div>
+                          <div>
+                            <p className="text-white font-bold text-sm">Top Rated School</p>
+                            <p className="text-white/60 text-xs">Excellence in North Delhi</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
           </div>
@@ -641,23 +654,26 @@ export function Home() {
             </p>
           </div>
 
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {galleryImages.map((img, i) => (
               <div
                 key={i}
-                className="relative break-inside-avoid overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000"
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
-                  width={800}
-                  height={1200}
+                  className={cn(
+                    "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
+                    img.position || "object-center"
+                  )}
+                  fill
+                  sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/80 via-school-green-dark/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-8 translate-y-4 group-hover:translate-y-0">
+                <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/85 via-school-green-dark/25 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 z-10">
                   <span className="text-school-gold font-bold text-xs uppercase tracking-widest mb-1 font-beware">Daffodils Life</span>
-                  <span className="text-white text-lg font-black">{img.alt}</span>
+                  <span className="text-white text-lg font-black leading-tight">{img.alt}</span>
                 </div>
               </div>
             ))}

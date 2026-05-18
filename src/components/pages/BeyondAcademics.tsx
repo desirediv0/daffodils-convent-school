@@ -65,10 +65,10 @@ const activityCategories = [
 
 const galleryImages = [
   { src: "/nature-visit.jpeg", alt: "Students in nature visit" },
-  { src: "/Festive_Duo.jpeg", alt: "Students in festive school attire" },
-  { src: "/Mother's day activity-2.png", alt: "Students during Mother's Day activity" },
-  { src: "/Mother's day activity.png", alt: "Mother's Day Celebration" },
-  { src: "/traditional-dress-group.jpeg", alt: "Cultural traditional dress" },
+  { src: "/Festive_Duo.jpeg", alt: "Students in festive school attire", position: "object-top" },
+  { src: "/Mother's day activity-2.png", alt: "Students during Mother's Day activity", position: "object-top" },
+  { src: "/Mother's day activity.png", alt: "Mother's Day Celebration", position: "object-top" },
+  { src: "/traditional-dress-group.jpeg", alt: "Cultural traditional dress", position: "object-top" },
   { src: "/yoga-performance.jpeg", alt: "Yoga performance" },
   { src: "/school-trip-jeep.jpeg", alt: "School trip excursion" },
   { src: "/kids-play-area.jpeg", alt: "Kids in play area" },
@@ -280,23 +280,26 @@ export function BeyondAcademics() {
             <h2 className="text-4xl font-black text-school-green-dark">Moments that Define Us</h2>
           </div>
 
-          <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {galleryImages.map((img, i) => (
               <div
                 key={i}
-                className="relative break-inside-avoid overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000"
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl group cursor-pointer shadow-lg animate-in fade-in zoom-in duration-1000"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
-                  width={600}
-                  height={800}
+                  className={cn(
+                    "w-full h-full object-cover transition-transform duration-700 group-hover:scale-110",
+                    img.position || "object-center"
+                  )}
+                  fill
+                  sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-school-green-dark/85 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 z-10">
                   <span className="text-school-gold font-bold text-xs uppercase tracking-widest mb-1">Activity Snapshot</span>
-                  <span className="text-white text-lg font-black">{img.alt}</span>
+                  <span className="text-white text-lg font-black leading-tight">{img.alt}</span>
                 </div>
               </div>
             ))}

@@ -38,7 +38,7 @@ export function InformationHub() {
     }
 
     window.addEventListener("scroll", handleScroll)
-    
+
     // Handle hash navigation on initial load or hash change
     const handleHash = () => {
       if (window.location.hash) {
@@ -242,7 +242,7 @@ export function InformationHub() {
               </div>
 
               {/* 2. ADMISSIONS */}
-              <div id="admissions" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+              {/* <div id="admissions" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
                 <div className="flex items-center gap-4 mb-8">
                   <div
                     className="h-14 w-14 rounded-xl flex items-center justify-center text-school-green-dark shadow-xl"
@@ -333,7 +333,7 @@ export function InformationHub() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               {/* 3. PARENTS / GUARDIANS */}
               <div id="parents" className="scroll-mt-32 animate-in fade-in slide-in-from-bottom-12 duration-1000">
@@ -345,7 +345,7 @@ export function InformationHub() {
                     <Users className="h-7 w-7" />
                   </div>
                   <div>
-                    <h2 className="text-4xl font-black text-school-green-dark">3. Parents / Guardians</h2>
+                    <h2 className="text-4xl font-black text-school-green-dark">2. Parents / Guardians</h2>
                     <p className="text-school-gold-dark font-bold text-xs uppercase tracking-[0.2em]">Guidelines & Cooperation</p>
                   </div>
                 </div>
@@ -482,7 +482,7 @@ export function InformationHub() {
                   <div className="relative z-10 grid grid-cols-1 xl:grid-cols-12 gap-16 items-center">
                     <div className="xl:col-span-8">
                       <Badge className="mb-6 bg-school-gold text-school-green-dark font-black tracking-widest px-4 py-1">ACADEMIC EXCELLENCE</Badge>
-                      <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">4. ASR Fellowship Award</h2>
+                      <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">3. ASR Fellowship Award</h2>
                       <p className="text-xl text-white/80 leading-relaxed font-medium">
                         To ensure that the school children achieve their academic excellence and strive for that little extra, an annual event took shape in the year 2025 as the <span className="text-school-gold font-black">ASR (Anand Singh Routela) Fellowship Exam</span>.
                       </p>
@@ -514,7 +514,7 @@ export function InformationHub() {
                     <FileText className="h-7 w-7" />
                   </div>
                   <div>
-                    <h2 className="text-4xl font-black text-school-green-dark">5. SLFRC Committee</h2>
+                    <h2 className="text-4xl font-black text-school-green-dark">4. SLFRC Committee</h2>
                     <p className="text-school-gold-dark font-bold text-xs uppercase tracking-[0.2em]">Transparency & Governance</p>
                   </div>
                 </div>
@@ -544,7 +544,7 @@ export function InformationHub() {
                     <Users className="h-7 w-7" />
                   </div>
                   <div>
-                    <h2 className="text-4xl font-black text-school-green-dark">6. Student Council</h2>
+                    <h2 className="text-4xl font-black text-school-green-dark">5. Student Council</h2>
                     <p className="text-school-gold-dark font-bold text-xs uppercase tracking-[0.2em]">House System & Leadership</p>
                   </div>
                 </div>
