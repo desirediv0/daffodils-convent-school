@@ -185,7 +185,7 @@ export function About() {
           </div>
 
           <div className="space-y-24">
-            {/* Director Section */}
+            {/* Founder Chairman Section */}
             <div className="max-w-4xl mx-auto p-10 md:p-16 rounded-3xl bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 relative overflow-hidden group animate-in fade-in slide-in-from-bottom-12 duration-1000">
               <div className="absolute top-0 right-0 w-32 h-32 bg-school-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-school-gold/10 transition-colors" />
               <div className="relative">
@@ -194,30 +194,28 @@ export function About() {
                     <Quote className="h-6 w-6" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-black text-school-green-dark">Director&apos;s Message</h4>
-                    <p className="text-school-gold-dark font-bold text-xs uppercase tracking-widest">Leadership & Vision</p>
+                    <h4 className="text-xl font-black text-school-green-dark">Founder Chairman Message</h4>
+                    <p className="text-school-gold-dark font-bold text-xs uppercase tracking-widest">Legacy & Vision</p>
                   </div>
                 </div>
 
-                <h3 className="text-3xl font-black text-school-green-dark mb-8 leading-tight italic">
-                  &quot;If we want to reach real peace in this world, we should start educating children&quot; <br />
-                  <span className="text-school-gold text-lg not-italic" style={{ color: "var(--school-gold-dark)" }}>– Mahatma Gandhi</span>
+                <h3 className="text-2xl font-black text-school-green-dark mb-8 leading-tight">
+                  Legacy of Our H&apos;ble Founder Chairman Sir — Mr. Surinder Routela
                 </h3>
 
                 <div className="space-y-6 text-slate-700 text-lg leading-relaxed font-medium">
                   <p>
-                    Today’s young learners are stepping into this reality. However, a widening gap remains between what learning is perceived to be and what is truly required for life beyond the classroom. Addressing this gap calls for a shift in educational approach—one that embeds real-world, experiential learning more deeply into the curriculum, ensuring education remains relevant, dynamic, and impactful.
+                    Mr. Surinder Routela dedicated his life to education, shaping it as his enduring legacy. He lived this journey with a passion for nurturing young minds. To him, learning was far more than the pursuit of knowledge; it was a continuous process that shaped character and guided every learner to act with honesty and intent.
+                  </p>
+                  <p>
+                    He firmly believed that education should help each child uncover the richness of their potential and use it to build a better world. Guided by timeless values, his philosophy of learning nurtured individuals who think wisely, feel deeply and lead with compassion.
+                  </p>
+                  <p>
+                    Mr. Routela dreamt of learners who would grow into exemplary embodiments of humanity—radiating confidence and grace. His vision will live on in the minds he shaped and the lives he touched.
                   </p>
                   <p className="text-school-green-dark font-bold italic">
-                    ‘Sa Vidhya Ya Vimukhthaye’ (Education is that which liberates)
+                    May the flame of education he ignited continue to kindle minds and inspire the path for generations to come!
                   </p>
-                  <p>
-                    Thus, a vibrant curriculum must reflect on sifting out knowledge that is becoming obsolete or redundant and take the individual into the realm of coexistence with the immediate and future environs. It must make the individual THINK!
-                  </p>
-                  <p>
-                    <span className="font-beware font-black">Daffodils Convent School</span>, with its excellent blend of cultural ethics and modernity, a personalized curriculum offers the ideal environs for not just discovering oneself and one’s multiple intelligences and talents, but also for preparing them well for the future. Its effective contemporary programs blend judiciously with the Indian ethos; the broad academic programs balances well with a myriad of extra-curricular, social service and self-development opportunities. A competent faculty undergoing regular professional self-enhancement, the school is definitely set on the right path to blend the best of the past with a vibrant future.
-                  </p>
-                  <p className="text-school-green-dark font-bold">Come, share with us the joy of Progressive Learning!</p>
                 </div>
               </div>
             </div>
