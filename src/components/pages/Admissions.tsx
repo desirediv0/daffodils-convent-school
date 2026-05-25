@@ -21,7 +21,8 @@ import {
   Sparkles,
   Search,
   FileText,
-  Globe
+  Globe,
+  Loader2
 } from "lucide-react"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
@@ -247,8 +248,13 @@ export function Admissions() {
     message: ""
   })
 
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setLoading(true)
+    setError("")
     try {
       const response = await fetch('/api/admissions', {
         method: 'POST',
@@ -268,9 +274,13 @@ export function Admissions() {
           address: "",
           message: ""
         })
+      } else {
+        setError("Something went wrong. Please try again or call us directly.")
       }
-    } catch (error) {
-      console.error("Admissions submission error:", error)
+    } catch {
+      setError("Network error. Please check your connection and try again.")
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -652,9 +662,21 @@ export function Admissions() {
                       <Textarea className="bg-white rounded-xl" placeholder="Any specific queries?" value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
                     </div>
 
-                    <Button type="submit" className="w-full h-16 rounded-xl font-black text-lg bg-school-green-dark text-white hover:bg-school-gold hover:text-school-green-dark transition-all shadow-xl group">
-                      Apply for Admission
-                      <ArrowRight className="h-5 w-5 ml-3 group-hover:translate-x-2 transition-transform" />
+                    {error && (
+                      <p className="text-red-500 text-sm font-bold text-center bg-red-50 border border-red-200 rounded-xl px-4 py-3">{error}</p>
+                    )}
+                    <Button type="submit" disabled={loading} className="w-full h-16 rounded-xl font-black text-lg bg-school-green-dark text-white hover:bg-school-gold hover:text-school-green-dark transition-all shadow-xl group disabled:opacity-70 disabled:cursor-not-allowed">
+                      {loading ? (
+                        <>
+                          <Loader2 className="animate-spin h-5 w-5 mr-3" />
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          Apply for Admission
+                          <ArrowRight className="h-5 w-5 ml-3 group-hover:translate-x-2 transition-transform" />
+                        </>
+                      )}
                     </Button>
                   </form>
                 )}

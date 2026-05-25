@@ -1,7 +1,7 @@
 
 "use client"
 import { useState } from "react"
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, MessageSquare, ExternalLink, Sparkles } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, MessageSquare, ExternalLink, Sparkles, Loader2 } from "lucide-react"
 import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -50,10 +50,14 @@ const subjectOptions = ["Admission Enquiry", "Fee Related", "Academic Concerns",
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
   const [form, setForm] = useState({ name: "", phone: "", email: "", classFor: "", section: "", subject: "", message: "" })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setLoading(true)
+    setError("")
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -63,9 +67,13 @@ export function Contact() {
       if (response.ok) {
         setSubmitted(true)
         setForm({ name: "", phone: "", email: "", classFor: "", section: "", subject: "", message: "" })
+      } else {
+        setError("Something went wrong. Please try again or call us directly.")
       }
-    } catch (error) {
-      console.error("Submission error:", error)
+    } catch {
+      setError("Network error. Please check your connection and try again.")
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -252,9 +260,21 @@ export function Contact() {
                         <Textarea id="message" placeholder="Tell us more about your child..." required rows={6} className="rounded-xl border-slate-200 focus:border-school-green focus:ring-school-green-light font-bold" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
                       </div>
 
-                      <Button type="submit" size="lg" className="w-full h-16 rounded-xl font-black text-lg gap-4 shadow-xl hover:scale-[1.02] transition-all" style={{ backgroundColor: "var(--school-green-dark)", color: "white" }}>
-                        Submit Application
-                        <Send className="h-5 w-5 text-school-gold" />
+                      {error && (
+                        <p className="text-red-500 text-sm font-bold text-center bg-red-50 border border-red-200 rounded-xl px-4 py-3">{error}</p>
+                      )}
+                      <Button type="submit" disabled={loading} size="lg" className="w-full h-16 rounded-xl font-black text-lg gap-4 shadow-xl hover:scale-[1.02] transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100" style={{ backgroundColor: "var(--school-green-dark)", color: "white" }}>
+                        {loading ? (
+                          <>
+                            <Loader2 className="animate-spin h-5 w-5 text-school-gold" />
+                            Sending...
+                          </>
+                        ) : (
+                          <>
+                            Submit Application
+                            <Send className="h-5 w-5 text-school-gold" />
+                          </>
+                        )}
                       </Button>
                     </form>
                   </>
