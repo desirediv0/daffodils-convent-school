@@ -1,25 +1,25 @@
 
 import nodemailer from "nodemailer"
 
-const transporter = nodemailer.createTransport({
-  host: process.env.NEXT_PUBLIC_SMTP_HOST,
-  port: parseInt(process.env.NEXT_PUBLIC_SMTP_PORT || "587"),
-  secure: false, // true for 465, false for other ports
+const getTransporter = () => nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT || "587"),
+  secure: false,
   auth: {
-    user: process.env.NEXT_PUBLIC_SMTP_USER,
-    pass: process.env.NEXT_PUBLIC_SMTP_PASSWORD,
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASSWORD,
   },
 })
 
 export const sendEmail = async ({ to, subject, html }: { to: string, subject: string, html: string }) => {
   const mailOptions = {
-    from: `"Daffodils Convent School" <${process.env.NEXT_PUBLIC_FROM_EMAIL}>`,
+    from: `"Daffodils Convent School" <${process.env.FROM_EMAIL}>`,
     to,
     subject,
     html,
   }
 
-  return transporter.sendMail(mailOptions)
+  return getTransporter().sendMail(mailOptions)
 }
 
 interface AdmissionData {
