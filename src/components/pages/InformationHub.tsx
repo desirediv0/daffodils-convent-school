@@ -484,7 +484,7 @@ export function InformationHub() {
                       <Badge className="mb-6 bg-school-gold text-school-green-dark font-black tracking-widest px-4 py-1">ACADEMIC EXCELLENCE</Badge>
                       <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">3. ASR Fellowship Award</h2>
                       <p className="text-xl text-white/80 leading-relaxed font-medium">
-                        To ensure that the school children achieve their academic excellence and strive for that little extra, an annual event took shape in the year 2025 as the <span className="text-school-gold font-black">ASR (Anand Singh Routela) Fellowship Exam</span>.
+                        To ensure that the school children achieve their academic excellence and strive for that little extra, an annual event took shape in the year 2026 as the <span className="text-school-gold font-black">ASR (Anand Singh Routela) Fellowship Exam</span>.
                       </p>
                       <div className="mt-10 flex flex-wrap gap-6">
                         <div className="p-6 bg-white/5 rounded-2xl border border-white/10 backdrop-blur-md">
@@ -518,19 +518,29 @@ export function InformationHub() {
                     <p className="text-school-gold-dark font-bold text-xs uppercase tracking-[0.2em]">Transparency & Governance</p>
                   </div>
                 </div>
-                <div className="bg-slate-50 rounded-3xl p-10 flex flex-col sm:flex-row gap-6 items-center border border-slate-100">
-                  <Button asChild variant="outline" size="lg" className="h-16 px-10 rounded-2xl gap-3 font-black text-lg border-slate-200 text-school-green-dark hover:bg-[#0d2d23] hover:text-white transition-all shadow-sm">
-                    <Link href="/information-hub#slfrc">
-                      <FileText className="h-6 w-6" />
-                      Document 1
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" size="lg" className="h-16 px-10 rounded-2xl gap-3 font-black text-lg border-slate-200 text-school-green-dark hover:bg-[#0d2d23] hover:text-white transition-all shadow-sm">
-                    <Link href="/information-hub#slfrc">
-                      <FileText className="h-6 w-6" />
-                      Document 2
-                    </Link>
-                  </Button>
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                      <div className="bg-school-green-dark px-6 py-3">
+                        <p className="text-white font-black text-sm uppercase tracking-widest">Constitution of SLFRC Committee</p>
+                      </div>
+                      <img
+                        src="https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/slfrc-committee.jpeg"
+                        alt="SLFRC Committee Constitution"
+                        className="w-full object-contain bg-white"
+                      />
+                    </div>
+                    <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                      <div className="bg-school-green-dark px-6 py-3">
+                        <p className="text-white font-black text-sm uppercase tracking-widest">Reserve Panel</p>
+                      </div>
+                      <img
+                        src="https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/slfrc-reserve-panel.jpeg"
+                        alt="SLFRC Reserve Panel"
+                        className="w-full object-contain bg-white"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 

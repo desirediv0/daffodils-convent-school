@@ -152,6 +152,78 @@ const faqs = [
   {
     q: "How can I apply?",
     a: "Parents can visit the school campus personally or fill out the online admission inquiry form available on this page."
+  },
+  {
+    q: "What is the admission process and timeline?",
+    a: "The process includes application submission, document verification, assessment (if applicable), and final admission confirmation."
+  },
+  {
+    q: "What curriculum does the school follow?",
+    a: "We follow the CBSE curriculum with a balanced focus on academics and skill development."
+  },
+  {
+    q: "What are the school's academic results?",
+    a: "Our students consistently achieve strong academic results, with high pass percentages."
+  },
+  {
+    q: "How do you support students who need extra help?",
+    a: "We provide remedial classes, learning support programs, and regular teacher guidance."
+  },
+  {
+    q: "What extracurricular activities are available?",
+    a: "We offer sports, music, dance, art, drama, debate, and various clubs."
+  },
+  {
+    q: "How do you ensure student safety?",
+    a: "The campus has CCTV surveillance, trained security staff, visitor management systems, and safety protocols."
+  },
+  {
+    q: "What are the qualifications of the teachers?",
+    a: "Our teachers are professionally qualified, experienced, and receive regular training."
+  },
+  {
+    q: "How do you communicate with parents?",
+    a: "We use parent-teacher meetings, school WhatsApp groups, emails, and regular progress reports."
+  },
+  {
+    q: "What is the school's approach to discipline?",
+    a: "We focus on positive discipline, counseling, and character development rather than punitive measures."
+  },
+  {
+    q: "How do you assess student progress?",
+    a: "Through periodic tests, projects, assignments, classroom participation, and examinations."
+  },
+  {
+    q: "What facilities are available on campus?",
+    a: "We have well-equipped classrooms, science equipment, computer labs, libraries, sports area, and activity rooms."
+  },
+  {
+    q: "Is transportation available?",
+    a: "We do not have school bus services but we have private cab service for specific areas under strict supervision."
+  },
+  {
+    q: "What is the fee structure?",
+    a: "The fee structure includes tuition fees and applicable charges for activities and other services."
+  },
+  {
+    q: "Are there any hidden or additional costs?",
+    a: "We provide a transparent fee schedule outlining all charges in advance."
+  },
+  {
+    q: "What support is available for students' mental well-being?",
+    a: "We counsel students regularly and organize wellness programs to support students' emotional and psychological development."
+  },
+  {
+    q: "What opportunities are available for leadership development?",
+    a: "Students can participate in student councils, house systems, clubs, and community service programs."
+  },
+  {
+    q: "How much homework is assigned?",
+    a: "Homework is age-appropriate and designed to reinforce classroom learning without causing excessive stress."
+  },
+  {
+    q: "How do you integrate technology into learning?",
+    a: "We use digital learning tools and technology-based projects to enhance education."
   }
 ]
 
@@ -241,9 +313,6 @@ export function Admissions() {
                 <Button size="lg" className="h-14 px-8 rounded-xl font-black bg-school-green-dark text-white hover:bg-school-green transition-all" onClick={() => document.getElementById('inquiry')?.scrollIntoView({ behavior: 'smooth' })}>
                   Apply for Admission
                 </Button>
-                <Button size="lg" variant="outline" className="h-14 px-8 rounded-xl font-black border-2 border-slate-200 text-slate-600 hover:bg-slate-50 transition-all">
-                  Download Prospectus
-                </Button>
               </div>
             </div>
             <div className="lg:col-span-5 relative animate-in fade-in slide-in-from-right-12 duration-1000">
@@ -293,7 +362,7 @@ export function Admissions() {
       </section>
 
       {/* ─── ADMISSION PROCESS ────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section id="process" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-16 items-start">
             <div className="lg:w-1/3">
@@ -399,7 +468,7 @@ export function Admissions() {
       </section>
 
       {/* ─── ELIGIBILITY & DOCUMENTS ──────────────────────── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section id="eligibility" className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-5">
@@ -620,7 +689,7 @@ export function Admissions() {
       </section>
 
       {/* ─── FAQ ─────────────────────────────────────────── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section id="faq" className="py-16 md:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-black text-school-green-dark mb-4">Common Admission Queries</h2>

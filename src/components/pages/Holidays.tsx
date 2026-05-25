@@ -138,6 +138,53 @@ export function Holidays() {
         </div>
       </section>
 
+      {/* ─── HOLIDAY HOMEWORK ─────────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <Badge
+              className="mb-4 px-4 py-1.5 text-xs font-bold tracking-widest uppercase border-none"
+              style={{ backgroundColor: "var(--school-gold-light)", color: "var(--school-green-dark)" }}
+            >
+              SUMMER BREAK 2026
+            </Badge>
+            <h2 className="text-3xl md:text-5xl font-black text-school-green-dark mb-4">Holiday Homework</h2>
+            <p className="text-slate-500 font-medium max-w-xl mx-auto">Download holiday homework for your class. Complete and submit on the first day of school reopening.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { label: "Pre-Nursery", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/PRE_NURSERY%20HHW.pdf" },
+              { label: "Nursery", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20NURSERY.pdf" },
+              { label: "K.G.", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20K.G.%20-%20Copy.pdf" },
+              { label: "Class I", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20I%20.pdf" },
+              { label: "Class II", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20II.pdf" },
+              { label: "Class III", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20III.pdf" },
+              { label: "Class IV", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20IV%20.pdf" },
+              { label: "Class V", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20V.pdf" },
+              { label: "Class VI", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20VI.pdf" },
+              { label: "Class VII", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20VII.pdf" },
+              { label: "Class VIII", url: "https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/CLASS%20VIII.pdf" },
+            ].map((item, i) => (
+              <a
+                key={i}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-school-gold/40 hover:bg-school-gold/5 hover:shadow-md transition-all group"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="h-10 w-10 rounded-full bg-white border border-slate-100 flex items-center justify-center group-hover:bg-school-gold/10 transition-colors">
+                    <Download className="h-5 w-5 text-slate-400 group-hover:text-school-gold-dark" />
+                  </div>
+                  <span className="font-black text-school-green-dark">{item.label}</span>
+                </div>
+                <span className="text-xs font-bold text-school-gold-dark uppercase tracking-wider">PDF</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <footer className="py-12 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <p className="text-school-gold-dark font-black tracking-[0.4em] uppercase text-xs font-beware">

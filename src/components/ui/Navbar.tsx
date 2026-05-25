@@ -52,7 +52,7 @@ const navLinks = [
     subLinks: [
       { label: "Admission Process", href: "/admissions#process" },
       { label: "Eligibility Criteria", href: "/admissions#eligibility" },
-      { label: "Required Documents", href: "/admissions#documents" },
+      { label: "Required Documents", href: "/admissions#eligibility" },
       { label: "Online Inquiry", href: "/admissions#inquiry" },
       { label: "FAQ", href: "/admissions#faq" },
     ]
@@ -238,7 +238,7 @@ export function Navbar() {
               color: "var(--school-green-dark)",
             }}
           >
-            <Link href="/admissions" className="flex items-center gap-2">
+            <Link href="/admissions#inquiry" className="flex items-center gap-2">
               <GraduationCap className="h-4 w-4" />
               Apply Now
             </Link>
@@ -365,7 +365,7 @@ export function Navbar() {
 
               <div className="mt-12 pt-8 border-t border-white/10">
                 <Button asChild className="w-full h-12 rounded-md text-md f bg-white text-[#0d2d23] hover:bg-white/90 shadow-xl">
-                  <Link href="/admissions" className="flex items-center justify-center gap-2">
+                  <Link href="/admissions#inquiry" className="flex items-center justify-center gap-2">
                     <GraduationCap className="h-5 w-5" />
                     Apply for Admission
                   </Link>
