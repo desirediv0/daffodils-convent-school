@@ -32,6 +32,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { PageHero } from "@/components/ui/PageHero"
+import Link from "next/link"
 
 const whyChooseUs = [
   {
@@ -745,11 +746,11 @@ export function Admissions() {
             Give your child the opportunity to learn, grow, and succeed in a positive educational environment.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button size="lg" className="h-16 px-12 rounded-xl font-black text-lg bg-school-green-dark text-white hover:scale-105 transition-all shadow-2xl" onClick={() => document.getElementById('inquiry')?.scrollIntoView({ behavior: 'smooth' })}>
-              Apply Now
+            <Button asChild size="lg" className="h-16 px-12 rounded-xl font-black text-lg bg-school-green-dark text-white hover:scale-105 transition-all shadow-2xl">
+              <Link href="/contact">Apply Now</Link>
             </Button>
-            <Button size="lg" variant="outline" className="h-16 px-12 rounded-xl font-black text-lg border-2 border-slate-200 bg-transparent text-school-green-dark hover:bg-white hover:border-school-gold transition-all shadow-xl">
-              Schedule a Visit
+            <Button asChild size="lg" variant="outline" className="h-16 px-12 rounded-xl font-black text-lg border-2 border-slate-200 bg-transparent text-school-green-dark hover:bg-white hover:border-school-gold transition-all shadow-xl">
+              <Link href="/contact">Schedule a Visit</Link>
             </Button>
           </div>
         </div>

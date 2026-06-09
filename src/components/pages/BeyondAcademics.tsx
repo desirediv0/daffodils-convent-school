@@ -47,7 +47,7 @@ const activityCategories = [
     icon: Star,
     color: "var(--school-gold-dark)",
     bgColor: "var(--school-gold-light)",
-    images: ["/Mother's day activity.png", "/Mother's day activity-2.png"],
+    images: ["/mothers-day-activity.png", "/mothers-day-activity-2.png"],
     description: "A special day dedicated to honoring mothers. Through creative card-making, storytelling, and performances, we celebrate the bond of love and gratitude.",
     activities: ["Creative Card Making", "Poetry Recitation", "Storytelling Sessions", "Gift Crafting", "Family Bonding Workshops"],
   },
@@ -64,14 +64,14 @@ const activityCategories = [
 ]
 
 const galleryImages = [
-  { src: "/nature-visit.jpeg", alt: "Students in nature visit" },
+  { src: "/nature-visit.jpeg", alt: "Students picnic" },
   { src: "/Festive_Duo.jpeg", alt: "Students in festive school attire", position: "object-top" },
-  { src: "/Mother's day activity-2.png", alt: "Students during Mother's Day activity", position: "object-top" },
-  { src: "/Mother's day activity.png", alt: "Mother's Day Celebration", position: "object-top" },
+  { src: "/mothers-day-activity-2.png", alt: "Students during Mother's Day activity", position: "object-top" },
+  { src: "/mothers-day-activity.png", alt: "Mother's Day Celebration", position: "object-top" },
   { src: "/traditional-dress-group.jpeg", alt: "Cultural traditional dress", position: "object-top" },
   { src: "/yoga-performance.jpeg", alt: "Yoga performance" },
   { src: "/school-trip-jeep.jpeg", alt: "School trip excursion" },
-  { src: "/kids-play-area.jpeg", alt: "Kids in play area" },
+  { src: "/kids-play-area.jpeg", alt: "A day out at amusement park" },
   { src: "/Green_Beginnings.jpeg", alt: "Gardening activity" },
   { src: "/martial-arts-performance.jpeg", alt: "Students in martial arts" },
   { src: "/classroom-students.jpeg", alt: "Students in class" },

@@ -186,36 +186,48 @@ export function About() {
 
           <div className="space-y-24">
             {/* Founder Chairman Section */}
-            <div className="max-w-4xl mx-auto p-10 md:p-16 rounded-3xl bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 relative overflow-hidden group animate-in fade-in slide-in-from-bottom-12 duration-1000">
+            <div className="max-w-5xl mx-auto p-10 md:p-12 rounded-3xl bg-white shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-slate-100 relative overflow-hidden group animate-in fade-in slide-in-from-bottom-12 duration-1000">
               <div className="absolute top-0 right-0 w-32 h-32 bg-school-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-2xl group-hover:bg-school-gold/10 transition-colors" />
-              <div className="relative">
-                <div className="flex items-center gap-4 mb-10">
-                  <div className="h-12 w-12 rounded-xl bg-school-green-dark flex items-center justify-center text-school-gold">
-                    <Quote className="h-6 w-6" />
+              <div className="relative grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <div className="md:col-span-8">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="h-12 w-12 rounded-xl bg-school-green-dark flex items-center justify-center text-school-gold">
+                      <Quote className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-black text-school-green-dark">Founder Chairman Message</h4>
+                      <p className="text-school-gold-dark font-bold text-xs uppercase tracking-widest">Legacy & Vision</p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xl font-black text-school-green-dark">Founder Chairman Message</h4>
-                    <p className="text-school-gold-dark font-bold text-xs uppercase tracking-widest">Legacy & Vision</p>
+
+                  <h3 className="text-2xl font-black text-school-green-dark mb-6 leading-tight">
+                    Legacy of Our H&apos;ble Founder Chairman Sir — Mr. Surinder Routela
+                  </h3>
+
+                  <div className="space-y-6 text-slate-700 text-base md:text-lg leading-relaxed font-medium">
+                    <p>
+                      Mr. Surinder Routela dedicated his life to education, shaping it as his enduring legacy. He lived this journey with a passion for nurturing young minds. To him, learning was far more than the pursuit of knowledge; it was a continuous process that shaped character and guided every learner to act with honesty and intent.
+                    </p>
+                    <p>
+                      He firmly believed that education should help each child uncover the richness of their potential and use it to build a better world. Guided by timeless values, his philosophy of learning nurtured individuals who think wisely, feel deeply and lead with compassion.
+                    </p>
+                    <p>
+                      Mr. Routela dreamt of learners who would grow into exemplary embodiments of humanity—radiating confidence and grace. His vision will live on in the minds he shaped and the lives he touched.
+                    </p>
+                    <p className="text-school-green-dark font-bold italic">
+                      May the flame of education he ignited continue to kindle minds and inspire the path for generations to come!
+                    </p>
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-black text-school-green-dark mb-8 leading-tight">
-                  Legacy of Our H&apos;ble Founder Chairman Sir — Mr. Surinder Routela
-                </h3>
-
-                <div className="space-y-6 text-slate-700 text-lg leading-relaxed font-medium">
-                  <p>
-                    Mr. Surinder Routela dedicated his life to education, shaping it as his enduring legacy. He lived this journey with a passion for nurturing young minds. To him, learning was far more than the pursuit of knowledge; it was a continuous process that shaped character and guided every learner to act with honesty and intent.
-                  </p>
-                  <p>
-                    He firmly believed that education should help each child uncover the richness of their potential and use it to build a better world. Guided by timeless values, his philosophy of learning nurtured individuals who think wisely, feel deeply and lead with compassion.
-                  </p>
-                  <p>
-                    Mr. Routela dreamt of learners who would grow into exemplary embodiments of humanity—radiating confidence and grace. His vision will live on in the minds he shaped and the lives he touched.
-                  </p>
-                  <p className="text-school-green-dark font-bold italic">
-                    May the flame of education he ignited continue to kindle minds and inspire the path for generations to come!
-                  </p>
+                <div className="md:col-span-4 w-full aspect-[4/5] relative rounded-2xl overflow-hidden shadow-lg border-4 border-slate-50">
+                  <Image
+                    src="/principal-speech.jpeg"
+                    alt="Founder Chairman Mr. Surinder Routela"
+                    className="w-full h-full object-cover object-top"
+                    fill
+                    sizes="(max-w-768px) 100vw, 33vw"
+                  />
                 </div>
               </div>
             </div>
