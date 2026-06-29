@@ -222,7 +222,7 @@ export function About() {
 
                 <div className="md:col-span-4 w-full aspect-[4/5] relative rounded-2xl overflow-hidden shadow-lg border-4 border-slate-50">
                   <Image
-                    src="/principal-speech.jpeg"
+                    src="/principal.jpeg"
                     alt="Founder Chairman Mr. Surinder Routela"
                     className="w-full h-full object-cover object-top"
                     fill

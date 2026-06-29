@@ -137,10 +137,10 @@ export function Navbar() {
               height={48}
             />
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-0.5">
             <span
               className={cn(
-                "font-bold text-[12px] leading-normal transition-colors duration-300 font-beware whitespace-nowrap",
+                "font-bold text-[12px] md:text-[14px] leading-tight transition-colors duration-300 font-beware whitespace-nowrap",
                 scrolled ? "text-[var(--school-green-dark)]" : "text-white"
               )}
             >
@@ -148,7 +148,7 @@ export function Navbar() {
             </span>
             <span
               className={cn(
-                "text-[10px] md:text-[12px] font-medium tracking-wide transition-colors duration-300",
+                "text-[10px] md:text-[11px] font-medium tracking-wide transition-colors duration-300 leading-tight",
                 scrolled
                   ? "text-[var(--school-gold-dark)]"
                   : "text-[var(--school-gold)]"
