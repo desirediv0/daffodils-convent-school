@@ -8,6 +8,7 @@ import { Button } from "../ui/button"
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 const navItems = [
   { id: "rules", label: "Rules & Regulations", icon: ScrollText },
@@ -524,20 +525,24 @@ export function InformationHub() {
                       <div className="bg-school-green-dark px-6 py-3">
                         <p className="text-white font-black text-sm uppercase tracking-widest">Constitution of SLFRC Committee</p>
                       </div>
-                      <img
+                      <Image
                         src="https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/slfrc-committee.jpeg"
                         alt="SLFRC Committee Constitution"
                         className="w-full object-contain bg-white"
+                        width={800}
+                        height={1000}
                       />
                     </div>
                     <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-md">
                       <div className="bg-school-green-dark px-6 py-3">
                         <p className="text-white font-black text-sm uppercase tracking-widest">Reserve Panel</p>
                       </div>
-                      <img
+                      <Image
                         src="https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/slfrc-reserve-panel.jpeg"
                         alt="SLFRC Reserve Panel"
                         className="w-full object-contain bg-white"
+                        width={800}
+                        height={1000}
                       />
                     </div>
                   </div>

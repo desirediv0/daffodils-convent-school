@@ -11,7 +11,7 @@ const getTransporter = () => nodemailer.createTransport({
   },
 })
 
-export const sendEmail = async ({ to, subject, html, attachments }: { to: string, subject: string, html: string, attachments?: any[] }) => {
+export const sendEmail = async ({ to, subject, html, attachments }: { to: string, subject: string, html: string, attachments?: nodemailer.SendMailOptions["attachments"] }) => {
   const mailOptions = {
     from: `"Daffodils Convent School" <${process.env.FROM_EMAIL}>`,
     to,
