@@ -5,10 +5,10 @@ import { sendEmail, getContactTemplate, getUserConfirmationTemplate } from "@/li
 export async function POST(req: Request) {
   try {
     const data = await req.json()
-    
+
     // 1. Send email to Admin
     await sendEmail({
-      to: process.env.NEXT_PUBLIC_TO_EMAIL || "codeshorts007@gmail.com",
+      to: process.env.NEXT_PUBLIC_TO_EMAIL || "daffodilsconventexamination@gmail.com",
       subject: `New Website Enquiry: ${data.subject}`,
       html: getContactTemplate(data)
     })
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
         html: getUserConfirmationTemplate(data.name)
       })
     }
-    
+
     return NextResponse.json({ success: true, message: "Enquiry sent successfully" })
   } catch (error) {
     console.error("Error sending contact email:", error)

@@ -11,15 +11,74 @@ const getTransporter = () => nodemailer.createTransport({
   },
 })
 
-export const sendEmail = async ({ to, subject, html }: { to: string, subject: string, html: string }) => {
+export const sendEmail = async ({ to, subject, html, attachments }: { to: string, subject: string, html: string, attachments?: any[] }) => {
   const mailOptions = {
     from: `"Daffodils Convent School" <${process.env.FROM_EMAIL}>`,
     to,
     subject,
     html,
+    attachments,
   }
 
   return getTransporter().sendMail(mailOptions)
+}
+
+interface CareersData {
+  name: string
+  email: string
+  phone: string
+  position: string
+  experience: string
+  message?: string
+}
+
+export const getCareersTemplate = (data: CareersData) => {
+  return `
+    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; background-color: #ffffff;">
+      <div style="background-color: #0d2d23; padding: 40px 20px; text-align: center;">
+        <h1 style="color: #cca300; margin: 0; font-size: 28px; font-weight: 900; letter-spacing: -0.5px;">DAFFODILS CONVENT SCHOOL</h1>
+        <p style="color: #ffffff; margin: 10px 0 0 0; font-size: 14px; font-weight: 600; opacity: 0.8; text-transform: uppercase; letter-spacing: 2px;">New Job/Career Application</p>
+      </div>
+      <div style="padding: 40px; color: #1e293b;">
+        <h2 style="font-size: 20px; font-weight: 800; color: #0d2d23; margin-top: 0;">Applicant Details</h2>
+        <div style="background-color: #f8fafc; border-radius: 12px; padding: 25px; margin-top: 20px;">
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 8px 0; color: #64748b; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; width: 45%;">Applicant Name</td>
+              <td style="padding: 8px 0; color: #0d2d23; font-size: 15px; font-weight: 700;">${data.name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #64748b; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Email Address</td>
+              <td style="padding: 8px 0; color: #0d2d23; font-size: 15px; font-weight: 700;">${data.email}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #64748b; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Phone Number</td>
+              <td style="padding: 8px 0; color: #0d2d23; font-size: 15px; font-weight: 700;">${data.phone}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #64748b; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Position Applied For</td>
+              <td style="padding: 8px 0; color: #0d2d23; font-size: 15px; font-weight: 700;">${data.position}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; color: #64748b; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;">Experience</td>
+              <td style="padding: 8px 0; color: #0d2d23; font-size: 15px; font-weight: 700;">${data.experience} years</td>
+            </tr>
+          </table>
+        </div>
+        
+        <div style="margin-top: 30px;">
+          <h3 style="font-size: 14px; font-weight: 800; color: #0d2d23; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px;">Message / Cover Letter:</h3>
+          <p style="background-color: #f1f5f9; border-left: 4px solid #cca300; padding: 15px; color: #334155; font-size: 14px; font-weight: 600; margin: 0; line-height: 1.6; border-radius: 4px;">
+            ${data.message || 'No message provided.'}
+          </p>
+        </div>
+      </div>
+      <div style="background-color: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #e2e8f0;">
+        <p style="margin: 0; font-size: 12px; color: #64748b; font-weight: 600;">&copy; 2026 Daffodils Convent School. All Rights Reserved.</p>
+        <p style="margin: 5px 0 0 0; font-size: 11px; color: #94a3b8; font-weight: 500;">Careers Portal Notification</p>
+      </div>
+    </div>
+  `
 }
 
 interface AdmissionData {

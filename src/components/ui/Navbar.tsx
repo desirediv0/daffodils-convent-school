@@ -128,13 +128,13 @@ export function Navbar() {
       <nav className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 md:gap-3 group relative z-[110]">
-          <div className="relative h-10 w-10 md:h-12 md:w-12 bg-white rounded-xl p-1.5 shadow-md transition-transform duration-500 group-hover:rotate-[5deg]">
+          <div className="relative h-12 w-12 md:h-16 md:w-16 bg-white rounded-xl p-1 shadow-md transition-transform duration-500 group-hover:rotate-[5deg]">
             <Image
               src="/logo.png"
               alt="Daffodils Convent School"
               className="h-full w-full object-contain"
-              width={48}
-              height={48}
+              width={50}
+              height={50}
             />
           </div>
           <div className="flex flex-col gap-0.5">

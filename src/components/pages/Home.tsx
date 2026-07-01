@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
+import CareersDialog from "@/components/ui/CareersDialog"
 
 const heroCarouselImages = [
   "/classroom-students.jpeg",
@@ -94,6 +95,7 @@ export function Home() {
   const statsRef = useRef<HTMLDivElement>(null)
   const [statsVisible, setStatsVisible] = useState(false)
   const [currentHeroImage, setCurrentHeroImage] = useState(0)
+  const [isCareersOpen, setIsCareersOpen] = useState(false)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -191,18 +193,16 @@ export function Home() {
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
                 <Button
-                  asChild
                   size="lg"
                   className="h-14 px-8 gap-3 font-bold text-base shadow-[0_10px_20px_rgba(204,163,0,0.3)] hover:shadow-[0_15px_30px_rgba(204,163,0,0.4)] hover:scale-105 transition-all duration-300 rounded-2xl"
                   style={{
                     backgroundColor: "var(--school-gold)",
                     color: "var(--school-green-dark)",
                   }}
+                  onClick={() => setIsCareersOpen(true)}
                 >
-                  <Link href="/admissions">
-                    Apply Now
-                    <ArrowRight className="h-5 w-5" />
-                  </Link>
+                  Apply Now
+                  <ArrowRight className="h-5 w-5" />
                 </Button>
 
                 <Button
@@ -844,6 +844,8 @@ export function Home() {
           </div>
         </div>
       </section>
+      
+      <CareersDialog isOpen={isCareersOpen} onClose={() => setIsCareersOpen(false)} />
     </div>
   )
 }

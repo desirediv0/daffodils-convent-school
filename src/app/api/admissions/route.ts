@@ -5,10 +5,10 @@ import { sendEmail, getAdmissionsTemplate, getUserConfirmationTemplate } from "@
 export async function POST(req: Request) {
   try {
     const data = await req.json()
-    
+
     // 1. Send email to Admin
     await sendEmail({
-      to: process.env.NEXT_PUBLIC_TO_EMAIL || "codeshorts007@gmail.com",
+      to: process.env.NEXT_PUBLIC_TO_EMAIL || "daffodilsconventexamination@gmail.com",
       subject: `NEW ADMISSION ENQUIRY: ${data.studentName} (${data.classApplying})`,
       html: getAdmissionsTemplate(data)
     })
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
         html: getUserConfirmationTemplate(data.parentName)
       })
     }
-    
+
     return NextResponse.json({ success: true, message: "Admission inquiry sent successfully" })
   } catch (error) {
     console.error("Error sending admissions email:", error)
