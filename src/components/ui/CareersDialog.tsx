@@ -70,7 +70,7 @@ export default function CareersDialog({ isOpen, onClose }: CareersDialogProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-[9999] overflow-y-auto">
           {/* Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -80,14 +80,15 @@ export default function CareersDialog({ isOpen, onClose }: CareersDialogProps) {
             className="fixed inset-0 bg-black/60 backdrop-blur-sm"
           />
 
-          {/* Dialog Body */}
-          <motion.div
-            initial={{ scale: 0.95, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.95, opacity: 0, y: 20 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            className="relative w-full max-w-2xl bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 z-10 animate-in fade-in zoom-in-95 duration-200"
-          >
+          <div className="flex min-h-full items-start justify-center p-4 text-center sm:items-center">
+            {/* Dialog Body */}
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", duration: 0.5 }}
+              className="relative w-full max-w-2xl bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800 z-10 animate-in fade-in zoom-in-95 duration-200 text-left my-8"
+            >
             {/* Upper banner color pattern */}
             <div className="h-3 bg-gradient-to-r from-school-gold via-[#0d2d23] to-school-gold" style={{ background: "linear-gradient(90deg, var(--school-gold) 0%, #0d2d23 50%, var(--school-gold) 100%)" }} />
 
@@ -286,7 +287,8 @@ export default function CareersDialog({ isOpen, onClose }: CareersDialogProps) {
             )}
           </motion.div>
         </div>
-      )}
-    </AnimatePresence>
-  )
+      </div>
+    )}
+  </AnimatePresence>
+)
 }
