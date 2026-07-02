@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
+import CareersDialog from "@/components/ui/CareersDialog"
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -63,6 +64,7 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [isCareersOpen, setIsCareersOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -230,18 +232,18 @@ export function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden xl:flex items-center gap-4">
           <Button
-            asChild
             size="sm"
-            className="rounded-full px-6 font-bold shadow-lg hover:shadow-[var(--school-gold)/30] hover:scale-105 transition-all duration-300"
+            className="rounded-full px-6 font-bold shadow-lg hover:shadow-[var(--school-gold)/30] hover:scale-105 transition-all duration-300 cursor-pointer"
             style={{
               backgroundColor: "var(--school-gold)",
               color: "var(--school-green-dark)",
             }}
+            onClick={() => setIsCareersOpen(true)}
           >
-            <Link href="/admissions#inquiry" className="flex items-center gap-2">
+            <span className="flex items-center gap-2">
               <GraduationCap className="h-4 w-4" />
               Apply Now
-            </Link>
+            </span>
           </Button>
         </div>        {/* Mobile Toggle */}
         <button
@@ -364,11 +366,17 @@ export function Navbar() {
               </div>
 
               <div className="mt-12 pt-8 border-t border-white/10">
-                <Button asChild className="w-full h-12 rounded-md text-md f bg-white text-[#0d2d23] hover:bg-white/90 shadow-xl">
-                  <Link href="/admissions#inquiry" className="flex items-center justify-center gap-2">
+                <Button 
+                  className="w-full h-12 rounded-md text-md f bg-white text-[#0d2d23] hover:bg-white/90 shadow-xl cursor-pointer"
+                  onClick={() => {
+                    setIsCareersOpen(true)
+                    setIsOpen(false)
+                  }}
+                >
+                  <span className="flex items-center justify-center gap-2">
                     <GraduationCap className="h-5 w-5" />
                     Apply for Admission
-                  </Link>
+                  </span>
                 </Button>
 
                 <div className="mt-10 space-y-6">
@@ -392,6 +400,7 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+      <CareersDialog isOpen={isCareersOpen} onClose={() => setIsCareersOpen(false)} />
     </header>
   )
 }

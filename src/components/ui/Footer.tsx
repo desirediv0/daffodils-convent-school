@@ -171,9 +171,14 @@ export function Footer() {
         <Separator className="my-12 bg-white/10" />
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-xs text-white/40 font-medium">
-            © {new Date().getFullYear()} <span className="text-white/60 font-black font-beware">DAFFODILS CONVENT SCHOOL</span>. ALL RIGHTS RESERVED.
-          </p>
+          <div className="flex flex-col gap-1 text-center md:text-left">
+            <p className="text-xs text-white/40 font-medium">
+              © {new Date().getFullYear()} <span className="text-white/60 font-black font-beware">DAFFODILS CONVENT SCHOOL</span>. ALL RIGHTS RESERVED.
+            </p>
+            <p className="text-[10px] text-white/30 font-medium uppercase tracking-widest">
+              Design & Developed by <a href="https://desirediv.com/" target="_blank" rel="noreferrer" className="text-white/40 hover:text-[var(--school-gold)] transition-colors font-bold">Desire Div</a>
+            </p>
+          </div>
           <div className="flex items-center gap-6">
             <Link href="#" className="text-[10px] uppercase font-black tracking-widest text-white/30 hover:text-[var(--school-gold)] transition-colors">Privacy Policy</Link>
             <Link href="#" className="text-[10px] uppercase font-black tracking-widest text-white/30 hover:text-[var(--school-gold)] transition-colors">Terms of Service</Link>

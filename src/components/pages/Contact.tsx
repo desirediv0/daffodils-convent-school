@@ -81,7 +81,7 @@ export function Contact() {
     <div className="min-h-screen bg-white">
       <PageHero
         title="Get in Touch"
-        subtitle="Have questions? Our admissions team is here to help you navigate your child's educational journey."
+        subtitle="Have questions? Our admission team is here to help you navigate your child's educational journey."
         breadcrumb="Contact Us"
       />
 
