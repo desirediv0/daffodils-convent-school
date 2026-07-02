@@ -88,6 +88,7 @@ export function Navbar() {
   }
 
   return (
+    <>
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] transition-all duration-500",
@@ -400,7 +401,8 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-      <CareersDialog isOpen={isCareersOpen} onClose={() => setIsCareersOpen(false)} />
     </header>
+    <CareersDialog isOpen={isCareersOpen} onClose={() => setIsCareersOpen(false)} />
+    </>
   )
 }
