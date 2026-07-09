@@ -117,23 +117,52 @@ export function Holidays() {
         </div>
       </section>
 
-      {/* ─── CONTACT CALLOUT ─────────────────────────────── */}
+      {/* ─── DOWNLOADS CALLOUT ─────────────────────────────── */}
       <section className="py-12 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8 p-10 rounded-3xl bg-white border border-slate-200 shadow-lg">
-            <div className="flex items-center gap-6">
-              <div className="h-16 w-16 rounded-full bg-school-gold/10 flex items-center justify-center">
-                <Calendar className="h-8 w-8 text-school-gold-dark" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Calendar */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 rounded-3xl bg-white border border-slate-200 shadow-lg group hover:border-school-green/30 transition-all duration-300">
+              <div className="flex items-center gap-5">
+                <div className="h-14 w-14 rounded-2xl bg-school-green/5 flex items-center justify-center shrink-0">
+                  <Calendar className="h-7 w-7 text-school-green" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-black text-school-green-dark">Academic Calendar</h4>
+                  <p className="text-slate-500 font-bold text-xs mt-1">Download the complete school calendar for 2026-27.</p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-xl font-black text-school-green-dark">Need the Full Calendar?</h4>
-                <p className="text-slate-500 font-bold text-sm">Download the complete academic schedule for 2026-27.</p>
-              </div>
+              <Button asChild size="sm" className="h-12 px-6 rounded-xl font-black bg-school-green text-white gap-2 shadow-md hover:scale-105 transition-all shrink-0 cursor-pointer">
+                <a href="https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/DATESHEETS%20.xlsx" target="_blank" rel="noopener noreferrer">
+                  <Download className="h-4 w-4" />
+                  Download Excel
+                </a>
+              </Button>
             </div>
-            <Button size="lg" className="h-14 px-8 rounded-xl font-black bg-school-green-dark text-white gap-3 shadow-xl hover:scale-105 transition-all">
-              <Download className="h-5 w-5" />
-              Download PDF Calendar
-            </Button>
+
+            {/* Date Sheet */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6 p-8 rounded-3xl bg-white border-2 border-school-gold shadow-lg group hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-school-gold text-school-green-dark text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-bl-xl">
+                LATEST
+              </div>
+              <div className="flex items-center gap-5">
+                <div className="h-14 w-14 rounded-2xl bg-school-gold/10 flex items-center justify-center shrink-0 animate-pulse">
+                  <Calendar className="h-7 w-7 text-school-gold-dark" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-black text-school-green-dark flex items-center gap-2">
+                    Exam Date Sheet
+                  </h4>
+                  <p className="text-slate-500 font-bold text-xs mt-1">Download the datesheet for upcoming school examinations.</p>
+                </div>
+              </div>
+              <Button asChild size="sm" className="h-12 px-6 rounded-xl font-black bg-school-gold text-school-green-dark gap-2 shadow-md hover:scale-105 transition-all shrink-0 cursor-pointer">
+                <a href="https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/DATESHEETS%20.xlsx" target="_blank" rel="noopener noreferrer">
+                  <Download className="h-4 w-4" />
+                  Download Excel
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

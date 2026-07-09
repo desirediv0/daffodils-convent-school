@@ -1,8 +1,9 @@
 "use client"
 
-import { BookOpen, FlaskConical, Globe, Calculator, Palette, Music, CheckCircle2, Laptop, UserCheck, BarChart3, Microscope, Baby, BookOpenCheck } from "lucide-react"
+import { BookOpen, FlaskConical, Globe, Calculator, Palette, Music, CheckCircle2, Laptop, UserCheck, BarChart3, Microscope, Baby, BookOpenCheck, Download } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { PageHero } from "@/components/ui/PageHero"
+import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -359,6 +360,43 @@ export function Academics() {
                 ))}
               </div>
 
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── DATE SHEET SECTION (NEW) ────────────────────── */}
+      <section id="datesheet" className="py-12 md:py-16 bg-white relative overflow-hidden border-y border-slate-100 scroll-mt-20">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <Badge
+            className="mb-4 px-4 py-1.5 text-xs font-bold tracking-widest uppercase border-none"
+            style={{ backgroundColor: "var(--school-gold-light)", color: "var(--school-green-dark)" }}
+          >
+            EXAMINATIONS & EVALUATIONS
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-black text-school-green-dark mb-4">Exam Date Sheet 2026-27</h2>
+          <p className="text-slate-500 font-medium max-w-xl mx-auto mb-8">
+            Stay updated with the latest examination schedules and date sheets for all classes. Download the official sheet below.
+          </p>
+
+          <div className="p-8 md:p-10 rounded-[2rem] bg-school-green-dark text-white border-2 border-school-gold shadow-2xl relative overflow-hidden max-w-2xl mx-auto">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="relative z-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="flex items-center gap-4 text-left">
+                <div className="h-12 w-12 rounded-xl bg-white/10 flex items-center justify-center text-school-gold shrink-0">
+                  <BookOpenCheck className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-white">Date Sheet (Excel Format)</h3>
+                  <p className="text-white/70 text-xs mt-1">Class Nursery to Class VIII schedules included.</p>
+                </div>
+              </div>
+              <Button asChild size="lg" className="h-14 px-8 rounded-xl font-black bg-school-gold text-school-green-dark gap-2 shadow-lg hover:scale-105 transition-all cursor-pointer">
+                <a href="https://desirediv-storage.blr1.cdn.digitaloceanspaces.com/daffodils/DATESHEETS%20.xlsx" target="_blank" rel="noopener noreferrer">
+                  <Download className="h-5 w-5" />
+                  Download Date Sheet
+                </a>
+              </Button>
             </div>
           </div>
         </div>

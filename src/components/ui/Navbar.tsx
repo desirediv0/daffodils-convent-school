@@ -32,6 +32,7 @@ const navLinks = [
       { label: "Primary Section (I-V)", href: "/academics#primary" },
       { label: "Middle Section (VI-VIII)", href: "/academics#middle" },
       { label: "Infrastructure", href: "/academics#infrastructure" },
+      { label: "Date Sheet 2026-27", href: "/academics#datesheet" },
     ]
   },
   {
@@ -192,6 +193,8 @@ export function Navbar() {
                         <Link
                           key={sub.href}
                           href={sub.href}
+                          target={sub.href.startsWith("http") ? "_blank" : undefined}
+                          rel={sub.href.startsWith("http") ? "noopener noreferrer" : undefined}
                           className="flex items-center gap-3 px-4 py-2.5 rounded-xl text-[13px] font-bold text-slate-600 hover:bg-slate-50 hover:text-school-green-dark transition-all"
                         >
                           <div className="h-1.5 w-1.5 rounded-full bg-school-gold" />
@@ -325,6 +328,8 @@ export function Navbar() {
                               <Link
                                 key={sub.href}
                                 href={sub.href}
+                                target={sub.href.startsWith("http") ? "_blank" : undefined}
+                                rel={sub.href.startsWith("http") ? "noopener noreferrer" : undefined}
                                 onClick={() => setIsOpen(false)}
                                 className="px-4 py-3 rounded-xl text-sm font-bold text-white/60 hover:text-white hover:bg-white/5 transition-all"
                               >
